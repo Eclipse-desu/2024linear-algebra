@@ -1,0 +1,278 @@
+\title{第十一周作业}
+\author{洪艺中}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 6.1 题目1 (2)(5) }
+\begin{solution}
+\begin{enumerate}
+    \item[(2)] 假设这里的通常数指实数 $\real$. 那么由复数加法自身的交换律和结合律, 以及 $0$ 和 $1$ 的存在, 可以验证线性空间的性质 (1) 到 (4), 即作为线性空间加法的性质; 而由于所定义的数乘就是实数与复数的乘法, 实数 $\real$ 作为复数 $\comp$ 的子集, 由复数自身乘法的结合律和与加法的分配律, 可以验证线性空间的性质 (5) 到 (8).
+    \item[(5)] 注意到 $\ma \mb - \mb \ma$ 一定是迹为 $0$ 的矩阵, 所以只要取一个迹不为 $0$ 的矩阵 $\ma$, 如果零元 $\mat{\mat{\theta}}$ 存在, 那么 $\ma \oplus \mat{\mat{\theta}} = \ma$, 根据加法的定义, 右边是迹为 $0$ 的矩阵, 矛盾. 所以零元不存在, 即这个空间不是线性空间.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目2 }
+\begin{solution}
+对第一个问题, 答曰: 无限个. 因为按照课本上对数域的定义(见附录 A 定义)是考虑关于复数的加法和乘法封闭的数集, 所以是无限集(附录A中的定理 A.1.1). 因此 $\{q \mat{\alpha} | q \in \ratn\}$ 是该线性空间的一个无限子集.
+
+对第二个问题, 答曰: 不存在. 因为如果线性空间里有两个不同的向量, 那么其中一个一定非零. 所以根据第一个问题的答案, 该线性空间一定不是有限的.
+\end{solution}
+
+\subsection*{ 题目3 (2)(4) }
+\begin{solution} 证明如下
+\begin{enumerate}
+    \item[(2)]
+    \[
+    (k - l)\mat{\alpha} = (k + (-l))\mat{\alpha} = k\mat{\alpha} + (-l)\mat{\alpha} = k\mat{\alpha} + (-1)(l\mat{\alpha}) = k\mat{\alpha} - l\mat{\alpha}.
+    \]
+    \item[(4)]
+    \[
+    k\mat{\theta} = k(\mat{\theta} + \mat{\theta}) = k\mat{\theta} + k\mat{\theta},
+    \]
+    两边加上 $k\mat{\theta}$ 的逆元,
+    \[
+    \mat{\theta} = -(k\mat{\theta}) + k\mat{\theta} = -(k\mat{\theta}) + k\mat{\theta} + k\mat{\theta} = \mat{\theta} + k\mat{\theta} = k\mat{\theta}.
+    \]
+    所以 $k\mat{\theta} = \mat{\theta}$.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 习题 6.2 题目1 (1)(3) }
+\begin{solution}
+\begin{enumerate}
+    \item[(1)] 举例: $(1, 0, 0, 0), (0, 1, 0, 0), (0, 1, 0, 0)$, 但是第一个向量不能由后两个表示;
+    \item[(3)] 注意, 题目中的条件说明 $\mat{\alpha}_i - \mat{\beta}_i$ 是线性无关组, 举例: $\mat{\alpha}$ 组为线性无关组 $(1, 0, 0, 0)$, $(0, 1, 0, 0)$, 而 $\mat{\beta}$ 组都是零向量 $\mat{\theta}$. 那么 $\mat{\alpha}$ 组线性无关, 但是 $\mat{\beta}$ 组线性相关; 如果我们交换 $\mat{\alpha}_2$ 和 $\mat{\beta}_2$, 那么两个组都线性相关, 但是条件依然成立.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目2 (2)(4) }
+\begin{solution}
+要说明向量组是线性无关的, 就要说明如果其线性组合为 0 时, 所有系数必须为 0. 那么当向量可以由坐标表示时, 线性组合即这些坐标(列向量)关于系数求和得到的向量, 也就是这些坐标拼成的矩阵与系数列向量的乘积. 因此线性无关等价于这个矩阵导出的齐次线性方程组只有零解, 也就是矩阵的秩 $=$ 未知数个数. 因此我们只需要判断向量组作为列向量拼成的矩阵的秩是否与向量组元素个数相同, 就能知道其是否是线性无关的.
+\begin{enumerate}
+    \item[(2)]
+    \[
+        r\left(\begin{matrix}
+            3 & 2 & 4 \\
+            1 & 5 & -3 \\
+            4 & -1 & 7
+            \end{matrix}\right) = 3,
+    \]
+    所以是线性无关的.
+    \item[(4)]
+    \[
+        r\left(\begin{matrix}
+            1 & 2 & 1 & 2 & 1 \\
+            2 & -1 & -1 & 1 & -1 \\
+            1 & 1 & 2 & -3 & 3 \\
+            -2 & 3 & -1 & 1 & -1 \\
+            1 & 2 & 3 & -2 & 7
+            \end{matrix}\right) = 5,
+    \] 
+    所以是线性无关的.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目3(2) }
+\begin{solution}
+$\mat{\beta} = -\mat{\alpha}_1 + \mat{\alpha}_2 + 2\mat{\alpha}_3 - 2\mat{\alpha}_4$.
+\end{solution}
+
+\subsection*{ 题目4 (2) }
+\begin{solution}
+$t = 5$ 时线性相关.
+\end{solution}
+
+\newpage
+\subsection*{ 题目 5 }
+\begin{solution}
+反设这组向量不线性无关, 那么存在不全为 $0$ 的系数 $c_i$, 不妨设最后一个非零的系数是 $ c_i$, 即 $i = \max\{ \ j \ | \ c_j \not= 0 \ \}$.
+\[
+\mat{\alpha}_i = -\frac{1}{c_i}(c_1 \mat{\alpha}_1 + \cdots + c_{i - 1} \mat{\alpha}_{i - 1}),
+\]
+这说明 $\mat{\alpha}_i$ 可以由前 $i - 1$ 个向量线性表示, 这与条件 (2) 矛盾. 所以假设不成立, 原向量组线性无关.
+\end{solution}
+
+\subsection*{ 题目 9 }
+\begin{solution}
+证明: 只要能求出线性表示的表达式, 就等于说明线性相关了. 根据条件, 设 $c_1 (\mat{\alpha}_1 + \mat{\beta}) + c_2 (\mat{\alpha}_2 + \mat{\beta}) = \mat{\theta}$, 且 $c_1, c_2$ 不全为 $0$. 因为 $\mat{\alpha}_1$ 和 $\mat{\alpha}_2$ 线性无关, 如果 $c_1 + c_2 = 0$, 那么 $c_1 \mat{\alpha}_1 + c_2 \mat{\alpha}_2 = \mat{\theta}$, 与线性无关的定义矛盾. 所以 $c_1 + c_2 \not= 0$, 所以
+\[
+\mat{\beta} = -\frac{c_1}{c_1 + c_2}\mat{\alpha}_1 - \frac{c_2}{c_1 + c_2}\mat{\alpha}_2,
+\]
+命题得证.
+\end{solution}
+
+\subsection*{ 题目 10 }
+\begin{solution}
+考虑这组向量的线性组合
+\[
+c_0 \mlb + c_1 \ma \mlb + c_2 \ma^2 \mlb + \cdots + c_k \ma^k \mlb,
+\]
+如果这个线性组合为零, 也就是
+\[
+\label{eq::linear-combination-1}
+    c_0 \mlb + c_1 \ma \mlb + \cdots + c_k \ma^k \mlb = \mat{\theta}, \tag{$\ast$}
+\]
+我们来证明这组系数也必须全部为 $0$, 这样就说明了线性无关.
+
+对这个等式的两边都乘上矩阵 $\ma$, 因为 $A^{k + 1}\mlb = \mat{\theta}$, 得到
+\[
+    c_0 \ma \mlb + c_1 \ma^2 \mlb + \cdots + c_{k - 1} \ma^k \mlb = \mat{\theta},
+\]
+这样, 我们就得到了一个 $k$ 个元素的线性组合, 其值为 $\mat{\theta}$. 如果我们再次乘 $\ma$, 因为 $A^{k + 1}\mlb = \mat{\theta}$, 这个求和式又会减少一项. 也就是说每次乘 $\ma$ 都会减少一项, 那么如果我们乘 $k$ 次, 就只剩下 $c_0$ 的那一项了, 即
+\[
+c_0 \ma^k \mlb = \mat{\theta},
+\]
+由于 $\ma^k \mlb \not= \mat{\theta}$, 所以 $c_0 = 0$.
+
+接下来我们用归纳法证明其他的项都为 $0$. 假如我们已经证明了 $c_0$ 到 $c_{t - 1}$ 都是 $0$, 那么 (\ref{eq::linear-combination-1}) 去掉前面 $0$ 系数的项, 变为
+\[
+c_{t} \ma^t \mlb + \cdots + c_k \ma^k \mlb = \mat{\theta},
+\]
+两边乘上 $\ma^{k - t}$, 依然由于 $A^{k + 1}\mlb = \mat{\theta}$, 得到
+\[
+c_{t} \ma^k \mlb = \mat{\theta}.
+\]
+同样的理由, 可以得到 $c_t = 0$. 那么由归纳法, 我们就证明了所有的 $c_i = 0$. 即, 向量组是线性无关的.
+\end{solution}
+
+\newpage
+\section{第二部分}
+
+\subsection*{ 习题 6.3 题目 1 }
+\begin{solution}
+利用我们习题课证明的结论: 如果两个向量组都线性无关, 个数相同, 其中一个可以表示另一个, 那么二者等价. 我们只需要证明两个向量组都是线性无关的, 并且其中一个可以表示另一个.
+
+判断线性无关的方法就是看向量拼成的矩阵的秩是否等于向量个数, 
+\[
+r\left(\begin{matrix}
+    0 & 3 & 2 \\
+    1 & -1 & 1 \\
+    2 & 0 & 0
+    \end{matrix}\right)
+    = r \left(\begin{matrix}
+        1 & 1 & 1 \\
+        0 & 2 & 2 \\
+        0 & 0 & 3
+        \end{matrix}\right) = 3,
+\]
+所以两个向量组都线性无关.
+
+接下来说明 $\mat{\beta}$ 组可以表示 $\mat{\alpha}$ 组, 即写出
+\[
+(\mat{\alpha}_1, \mat{\alpha}_2, \mat{\alpha}_3) = (\mat{\beta}_1, \mat{\beta}_2, \mat{\beta}_3)\left(\begin{matrix}
+    \frac{-1}{2} & \frac{7}{2} & \frac{3}{2} \\
+    \frac{-1}{6} & \frac{-1}{2} & \frac{1}{2} \\
+    \frac{2}{3} & 0 & 0
+    \end{matrix}\right).
+\]
+\end{solution}
+
+\subsection*{ 题目 2 }
+\begin{solution}
+首先, $\mat{\beta}$ 可以由 $\mat{\alpha}_1, \cdots, \mat{\alpha}_{s}$ 线性表示, 所以 $\mat{\alpha}_1, \cdots, \mat{\alpha}_{s}$ 这组向量(记为 (I) 组) 可以表示 $\mat{\alpha}_1, \cdots, \mat{\alpha}_{s - 1}, \mat{\beta}$ 这组向量(记为 (I\!I) 组). 
+
+反过来, 要证明 (I\!I) 可以表示 (I), 我们只需要证明 (I\!I) 可以表示 $\mat{\alpha}_n$. 考虑 $\mat{\beta}$ 用 (I) 的一个线性表示
+\[
+\mat{\beta} = c_1 \mat{\alpha}_1 + \cdots + c_{s - 1} \mat{\alpha}_{s - 1} + c_{s} \mat{\alpha}_{s},
+\]
+如果 $c_s$ 不为 $0$, 那么就可以用 (I\!I) 来表示 $\mat{\alpha}_{s}$ 了, 即
+\[
+    \mat{\alpha}_{s} = -\frac{1}{c_s}(c_1 \mat{\alpha}_1 + \cdots + c_{s - 1} \mat{\alpha}_{s - 1} - \mat{\beta}).
+\]
+ 所以我们只需要证明, $c_s$ 不为 $0$, 就可以证明命题. 证明如下: 反设 $c_s = 0$, 那么 $\mat{\beta}$ 可以用  $\mat{\alpha}_1, \cdots, \mat{\alpha}_{s - 1}$ 线性表示, 而这与条件矛盾. 所以假设不成立, 即 $c_s \not= 0$. 
+\end{solution}
+
+\subsection*{ 题目3 }
+\begin{solution}
+因为 $\mat{\alpha}_1, \cdots, \mat{\alpha}_s, \mat{\beta}, \mat{\gamma}$ 线性相关, 所以存在不全为零的系数 $c_i$, 使线性组合
+\[
+c_1 \mat{\alpha}_1 + \cdots + c_n \mat{\alpha}_n + c_{n + 1} \mat{\beta} + c_{n + 2} \mat{\gamma} = \mat{\theta}.
+\]
+
+因为 $\mat{\alpha}_i$ 之组是线性无关的, 所以 $c_{n + 1}$ 和 $c_{n + 2}$ 不能同时为 $0$. 因此我们按照这两个数中为 $0$ 的个数分类讨论
+\begin{enumerate}
+    \item 其中只有一个为 $0$, 不妨设是 $c_{n + 2}$. 那么 $\mat{\beta}$ 可以由 $\mat{\alpha}_i$ 表示; 如果是 $c_{n + 1} = 0$, 就是 $\mat{\gamma}$ 可以由 $\mat{\alpha}_i$ 表示;
+    \item 两个都非零. 那么 $\mat{\gamma}$ 可以用 $\mat{\alpha}_i$ 和 $\mat{\beta}$ 构成的向量组线性表示, 反过来 $\mat{\beta}$ 可以用 $\mat{\alpha}_i$ 和 $\mat{\gamma}$ 构成的向量组线性表示. 所以这两个向量组等价.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 习题 6.4 题目1 }
+\begin{problem*}
+证明: 若向量组含有有限个向量, 则其任意一个线性无关的部分组均可以扩张为其一个极大线性无关组.
+\end{problem*}
+\begin{solution}
+先证明引理
+\begin{lemma}
+    若 $\mat{\alpha}_1, \cdots, \mat{\alpha}_n$ 线性无关, 并且 $\mat{\beta}$ 不能由这个向量组线性表示, 则 $\mat{\alpha}_1, \cdots, \mat{\alpha}_n, \mat{\beta}$ 也是线性无关的.
+\end{lemma}
+\begin{proof}
+    依然是假设其线性相关, 那么存在不全为零的系数 $c_i$,
+    \[
+        c_1 \mat{\alpha}_1 + \cdots + c_n \mat{\alpha}_n + c_{n + 1} \mat{\beta} = \mat{\theta},
+    \]
+    如果 $c_{n + 1} = 0$, 由 $\mat{\alpha}_i$ 的线性无关性, 所有的 $c_i$ 都为 $0$. 因此不行. 因此 $c_{n + 1}$ 非零, 那么 $\mat{\beta}$ 可以由 $\mat{\alpha}_i$ 线性表示, 与条件矛盾. 所以假设不成立, 引理得证.
+\end{proof}
+
+利用引理, 我们可以构造一个极大线性无关组. 设这个部分组是 $\mat{\alpha}_1, \cdots, \mat{\alpha}_t$, 原向量组(记为 (I))中, 余下的向量为 $\mat{\beta}_1, \cdots, \mat{\beta}_s$. 即向量组一共 $s + t$ 个向量. 按照如下步骤处理
+\begin{enumerate}
+    \item[S1] 记正在扩充的线性无关组为 $L := \{\mat{\alpha}_1, \cdots, \mat{\alpha}_t\}$, $j$ 表示后续步骤中, 考虑是否要加入 $L$ 的向量的编号. 初始 $j = 1$;
+    \item[S2] 计算 $L$ 能否表示 $\{\mat{\beta}_j\}$. 如果可以, 到步骤 S4; 否则到步骤 S3;
+    \item[S3] 这是 $\mat{\beta}_j$ 不能由 $L$ 线性表示的情况. 在这个情况下, 把 $\mat{\beta}_j$ 加入 $L$ 中, 即修改 $L \leftarrow L \cup\{\mat{\beta}_j\}$;
+    \item[S4] $\mat{\beta}_j$ 已经考虑完了, 所以将 $j \leftarrow j + 1$. 如果自加后, $j$ 已经超过了 $s$, 则停止; 否则回到步骤 S2.
+\end{enumerate}
+
+因为 $s$ 是有限的, 所以上述算法会在 $4s$ 步内停止. 经过以上算法, 我们把 $\mat{\alpha}_1, \cdots, \mat{\alpha}_t$ 扩张成了一新组 $L_{\text{终}}$. 接下来我们只要证明其是极大线性无关组即可. 首先由引理, 这个向量组是线性无关组. 同时任取 (I) 中的向量 $\mlv$, 如果 $\mlv$ 不在 $L$ 中, 则存在 $k$, $\mlv = \mat{\beta}_k$. 在算法中 $j = k$ 时, 因为 $\mat{\beta}_k$ 可以由当时的 $L$ 表示, 所以才没有被加入 $L$. 因此我们知道最后算法得到的向量组 $L_{\text{终}}$ 的部分组可以表示 $\mat{\beta}_k$. 因此由 $\mlv$ 的任意性, $L_{\text{终}}$ 可以表示 (I). 所以它是 (I) 的极大线性无关组. 命题得证.
+\end{solution}
+
+\newpage
+\subsection*{ 题目3 }
+\begin{problem*}
+若向量组 $\mat{\alpha}_1, \cdots, \mat{\alpha}_s$ 的秩是 $r(r \leqslant s)$, 若其部分组 $\mat{\beta}_1, \cdots, \mat{\beta}_r$ 与 $\mat{\alpha}_1, \cdots, \mat{\alpha}_s$ 等价, 则 $\mat{\beta}_1, \cdots, \mat{\beta}_r$ 为 $\mat{\alpha}_1, \cdots, \mat{\alpha}_s$ 的一个极大线性无关组.
+\end{problem*}
+\begin{solution}
+记向量组 $\mat{\alpha}_1, \cdots, \mat{\alpha}_s$ 为向量组 (I), $\mat{\beta}_1, \cdots, \mat{\beta}_r$ 为向量组 (I\!I). 如果 (I\!I) 是线性无关的, 那么根据定义, 它和原向量组等价, 所以它就是极大线性无关组. 因此只需要证明 (I\!I) 是线性无关的即可. 为此我们用反证法, 假设 (I\!I) 不是线性无关的.
+
+定理 6.4.5 说明向量组 (I) 有极大线性无关组, 并且由秩的定义, 我们知道其极大线性无关组的向量个数是 $r$. 为了推出矛盾, 我们希望找到一个 (I) 的线性无关组, 其向量个数少于 $r$, 这样就与秩为 $r$ 矛盾.
+
+为此, 我们取 (I\!I) 的极大线性无关组 $\mat{\gamma}_1, \cdots, \mat{\gamma}_l$, 我们记这个组为 (I\!I\!I). 因为 (I\!I) 不是线性相关的, 所以 $l < r$. 那么 (I\!I\!I) 可以表示 (I\!I), (I\!I) 可以表示 (I), 所以 (I\!I\!I) 是可以表示 (I) 的线性无关组. 那么它将是 (I) 的极大线性无关组, 所以 (I) 的秩是 $l$. $l < r$, 矛盾. 所以假设不成立.
+
+注: 我们的方法在 $r = 1$ 的时候可能有点问题, 因为没有正整数小于 $1$. 这种情况可以特殊讨论. 如果 $\mat{\beta}_1$ 非零, 那么这个组显然是线性无关组; 如果 $\mat{\beta}_1$ 为零, 那么它等价于 (I), 说明 (I) 里面都是零向量, 那么这个向量组 (I) 不存在极大线性无关组, 但是这与 (I) 的秩为 $1$ 矛盾.
+\end{solution}
+
+\subsection*{ 问题 5(1) }
+\begin{solution}
+秩为 3. 可以选 $\mat{\alpha}_1$, $\mat{\alpha}_2$, $\mat{\alpha}_4$ 为极大线性无关组. 
+\[
+\mat{\alpha}_3 = \mat{\alpha}_1 - 5\mat{\alpha}_2.
+\]
+\end{solution}
+
+\subsection*{ 问题 6 }
+\begin{solution}
+向量组的秩是 3, 可以取 $\ma_1, \ma_2, \ma_3$ 为极大线性无关组. 这个题目可以通过取 $2 \times 2$ 矩阵空间上的一组基 $\me_{ij}$, 得到矩阵在这组基下的坐标, 然后用传统的计算 $\real^4$ 中向量组秩的方法来计算这个矩阵向量组的秩.
+\end{solution}
+
+\subsection*{ 习题 6.5 题目2 }
+\begin{solution}
+    任取向量 $(x_1, x_2, \cdots, x_n)$, 可以表示为
+    \[
+        (x_1, x_2, \cdots, x_n) = x_n \mat{\alpha}_1 + (x_{n - 1} - x_n) \mat{\alpha}_2 + (x_{n - 2} - x_{n - 1}) \mat{\alpha}_3 + \cdots + (x_1 - x_2) \mat{\alpha}_n.
+    \]
+    所以这组向量可以线性表示 $\mathbb{F}^n$. 同时其个数是 $n$, 因此是基. 坐标表示由上式可以得到.
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+基为 $\me_{ii} = \text{diag}(0, \cdots, 0, 1(\text{第\ }i\text{\ 个}), 0, \cdots, 0)$. 维数是 $n$.
+\end{solution}
+
+\subsection*{ 题目 4(1) }
+\begin{solution}
+不能, 因为前三个向量加起来是第四个.
+\end{solution}
+
+\subsection*{ 题目 6 }
+\begin{solution}
+答案不唯一, 一种方案是加入 $(0, 0, 1, 0)$ 和 $(0, 0, 0, 1)$. 
+\end{solution}

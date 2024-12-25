@@ -1,0 +1,351 @@
+\title{第一次作业}
+\author{洪艺中}
+\maketitle
+如无特殊说明, 本文中的 $t, t_1, t_2$ 等参数均为数域 $\mathbb{F}$ 中的任意数.
+\subsection*{问题1}
+(1) 方程是
+
+\[
+\left\{
+\begin{alignedat}{5}
+2x_1 &{}-{}& x_2 &{}+{}& 2x_3 &{}={} & 3, \\
+x_1  &{}-{}& x_2 &{}-{}& x_3  &{}={} & -1, \\
+3x_1 &{}+{}& x_2 &{}+{}& x_3  &{}={} & 5.
+\end{alignedat}
+\right.
+\]
+
+首先, 用第二个方程去消掉其余两个方程的 $x_1$ 变量. 为此, 按如下步骤操作:
+\begin{enumerate}
+    \item 交换第 $1$, $2$ 行的方程;
+    \item 交换后的第 $2$ 行加上交换后的第 $1$ 行之 $-2$ 倍;
+    \item 交换后的第 $3$ 行加上交换后的第 $1$ 行之 $-3$ 倍.
+\end{enumerate}
+
+如此, 即得
+
+\[
+    \left\{
+    \begin{alignedat}{5}
+    x_1  &{}-{}&  x_2 &{}-{}& x_3  &{}={} & -1, \\
+         &{} {}&  x_2 &{}+{}& 4x_3 &{}={} & 5, \\
+         &{} {}& 4x_2 &{}+{}& 4x_3 &{}={} & 8.
+    \end{alignedat}
+    \right.
+\]
+
+接着, 用第二个方程去消掉最后一个方程的 $x_2$ 变量. 为此, 第 $3$ 行加上第 $2$ 行之 $-4$ 倍. 如此, 即得
+\[
+    \left\{
+    \begin{alignedat}{5}
+    x_1  &{}-{}&  x_2 &{}-{}& x_3  &{}={} & -1, \\
+         &{} {}&  x_2 &{}+{}& 4x_3 &{}={} & 5, \\
+         &{} {}&      &{}-{}& 12x_3 &{}={} & -12.
+    \end{alignedat}
+    \right.
+\]
+
+解这个阶梯形方程组, 得到
+\[
+    \left\{
+    \begin{aligned}
+    x_1 &{}={} & 1, \\
+    x_2 &{}={} & 1, \\
+    x_3 &{}={} & 1.
+    \end{aligned}
+    \right.
+\]
+
+(5) 方程是
+
+\[
+\left\{
+\begin{alignedat}{5}
+ x_1 &{}+{}& 2x_2 &{}+{}& 3x_3 &{}-{}& x_4 &{}={} & 1, \\
+3x_1 &{}+{}& 2x_2 &{}+{}&  x_3 &{}-{}& x_4 &{}={} & 1, \\
+2x_1 &{}+{}& 3x_2 &{}+{}&  x_3 &{}+{}& x_4 &{}={} & 1, \\
+2x_1 &{}+{}& 2x_2 &{}+{}& 2x_3 &{}-{}& x_4 &{}={} & 1, \\
+5x_1 &{}+{}& 5x_2 &{}+{}& 2x_3 &{} {}&     &{}={} & 2.
+\end{alignedat}
+\right.
+\]
+
+直接消元即可, 不过这里给出另一个算法.
+
+观察方程组发现, $x_4$ 的系数皆为 $\pm 1$, 所以可以把 $x_4$ 换到第一位来消元, 让结果看起来更好. 为此, 按如下步骤操作:
+\begin{enumerate}
+    \item 交换 $x_4$ 列到最前面;
+    \item 第 $2$, $3$, $4$ 行分别加上第 $1$ 行之 $-1$, $1$, $-1$ 倍. 
+\end{enumerate}
+
+如此, 即得
+\[
+\left\{
+\begin{alignedat}{5}
+-x_4 &{}+{}&  x_1 &{}+{}& 2x_2 &{}+{}& 3x_3 &{}={} & 1, \\
+     &{} {}& 2x_1 &{}+{}&      &{}-{}& 2x_3 &{}={} & 0, \\
+     &{} {}& 3x_1 &{}+{}& 5x_2 &{}+{}& 4x_3 &{}={} & 2, \\
+     &{} {}&  x_1 &{}+{}&      &{}-{}&  x_3 &{}={} & 0, \\
+     &{} {}& 5x_1 &{}+{}& 5x_2 &{}+{}& 2x_3 &{}={} & 2.
+\end{alignedat}
+\right.
+\]
+
+观察发现, 第 $2$ 和第 $4$ 行方程只差了一个 $2$ 倍, 所以其中一个可被消去为零. 我们用第 $4$ 行去消元. 为此, 按如下步骤操作:
+\begin{enumerate}
+    \item 交换第 $4$ 行到第二行, 并把原来的第 $2$ 行移动到方程的最后去, 得到
+\[
+\left\{
+\begin{alignedat}{5}
+-x_4 &{}+{}&  x_1 &{}+{}& 2x_2 &{}+{}& 3x_3 &{}={} & 1, \\
+     &{} {}&  x_1 &{}+{}&      &{}-{}&  x_3 &{}={} & 0, \\
+     &{} {}& 3x_1 &{}+{}& 5x_2 &{}+{}& 4x_3 &{}={} & 2, \\
+     &{} {}& 5x_1 &{}+{}& 5x_2 &{}+{}& 2x_3 &{}={} & 2, \\
+     &{} {}& 2x_1 &{}+{}&      &{}-{}& 2x_3 &{}={} & 0. 
+\end{alignedat}
+\right.
+\]
+\item 第 $3$, $4$, $5$ 行分别加上第 $2$ 行的 $-3$, $-5$, $-2$ 倍. 如此, 即得
+\[
+\left\{
+\begin{alignedat}{5}
+-x_4 &{}+{}&  x_1 &{}+{}& 2x_2 &{}+{}& 3x_3 &{}={} & 1, \\
+     &{} {}&  x_1 &{} {}&      &{}-{}&  x_3 &{}={} & 0, \\
+     &{} {}&      &{} {}& 5x_2 &{}+{}& 7x_3 &{}={} & 2, \\
+     &{} {}&      &{} {}& 5x_2 &{}+{}& 7x_3 &{}={} & 2, \\
+     &{} {}&      &{} {}&      &{} {}& 0    &{}={} & 0. 
+\end{alignedat}
+\right.
+\]
+\end{enumerate}
+
+最后, 我们发现第 $3$ 与 $4$ 行的方程是相同的. 因此可以消去一个, 即得
+\[
+\left\{
+\begin{alignedat}{5}
+-x_4 &{}+{}&  x_1 &{}+{}& 2x_2 &{}+{}& 3x_3 &{}={} & 1, \\
+     &{} {}&  x_1 &{} {}&      &{}-{}&  x_3 &{}={} & 0, \\
+     &{} {}&      &{} {}& 5x_2 &{}+{}& 7x_3 &{}={} & 2, \\
+     &{} {}&      &{} {}&      &{} {}& 0    &{}={} & 0, \\
+     &{} {}&      &{} {}&      &{} {}& 0    &{}={} & 0. 
+\end{alignedat}
+\right.
+\]
+
+消元得到阶梯形方程组后, 未知量有四, 非零方程有三, 且无矛盾方程. 因此方程组有无穷多解. 设 $x_1 = x_3 = t$, 得到
+\[
+    \left\{
+    \begin{aligned}
+    x_1 &{}={} & t, \\
+    x_2 &{}={} & -\dfrac{7}{5}t + \dfrac{2}{5}, \\
+    x_3 &{}={} & t, \\
+    x_4 &{}={} & \dfrac{6}{5}t - \dfrac{1}{5}.
+    \end{aligned}
+    \right.
+\]
+
+\newpage
+\subsection*{问题2}
+
+(2) 用第 $3$ 个方程去消元最为方便. 把第 $3$ 个方程换到第 $1$ 行来消元, 消去后得到
+\[
+\left(
+\begin{array}{cccc|c}
+    1 & 2 & -1 & 2 & 1 \\
+    0 & 0 & 3 & -3 & 3 \\
+    0 & 0 & -3 & 3 & -3 
+\end{array}
+\right),
+\]
+
+解出
+\[
+    \left\{
+    \begin{aligned}
+    x_1 &{}={} & 2 - 2t_1 - t_2, \\
+    x_2 &{}={} & t_1, \\
+    x_3 &{}={} & 1 + t_2, \\
+    x_4 &{}={} & t_2.
+    \end{aligned}
+    \right.
+\]
+
+(4) 
+\[
+\begin{aligned}
+\left(
+\begin{array}{cccc|c}
+    2 & 1 & -1 & 1 & 1 \\
+    3 & -2 & 2 & -3 & 2 \\
+    5 & 1 & -1 & 2 & -1 \\
+    2 & -1 & 1 & -3 & 4
+\end{array}
+\right)
+& \to 
+\left(
+\begin{array}{cccc|c}
+    2 & 1 & -1 & 1 & 1 \\
+    0 & \frac{-7}{2} & \frac{7}{2} & \frac{-9}{2} & \frac{1}{2} \\
+    0 & \frac{-3}{2} & \frac{3}{2} & \frac{-1}{2} & \frac{-7}{2} \\
+    0 & -2 & 2 & -4 & 3
+\end{array}
+\right) \to \\
+\left(
+\begin{array}{cccc|c}
+    2 & 1 & -1 & 1 & 1 \\
+    0 & \frac{-7}{2} & \frac{7}{2} & \frac{-9}{2} & \frac{1}{2} \\
+    0 & 0 & 0 & \frac{10}{7} & \frac{-26}{7} \\
+    0 & 0 & 0 & \frac{-10}{7} & \frac{19}{7}    
+\end{array}
+\right) 
+& \to 
+\left(
+\begin{array}{cccc|c}
+    2 & 1 & -1 & 1 & 1 \\
+    0 & \frac{-7}{2} & \frac{7}{2} & \frac{-9}{2} & \frac{1}{2} \\
+    0 & 0 & 0 & \frac{10}{7} & \frac{-26}{7} \\
+    0 & 0 & 0 & 0 & -1
+\end{array}
+\right),
+\end{aligned}
+\]
+
+因此方程组无解.
+\newpage
+\subsection*{问题3}
+
+用消元法. 记 $b_1 = a_5 + a_1$, $b_2 = a_5 + a_1 + a_2$, $b_3 = a_5 + a_1 + a_2 + a_3$, $b_4 = a_5 + a_1 + a_2 + a_3 + a_4$(为了排版), 则
+\[
+\begin{aligned}
+\left(
+\begin{array}{ccccc|c}
+    1 & -1 &   &   &   & a_1 \\
+      & 1 & -1 &   &   & a_2 \\
+      &   & 1 & -1 &   & a_3 \\
+      &   &   & 1 & -1 & a_4 \\
+    -1 &   &   &   & 1 & a_5 \\
+\end{array}
+\right)
+& \stackrel{R_5 + R_1}{\longrightarrow}
+\left(
+\begin{array}{ccccc|c}
+    1 & -1 &   &   &   & a_1 \\
+      & 1 & -1 &   &   & a_2 \\
+      &   & 1 & -1 &   & a_3 \\
+      &   &   & 1 & -1 & a_4 \\
+      & -1 &   &   & 1 & b_1 \\
+\end{array}
+\right) 
+ \stackrel{R_5 + R_2}{\longrightarrow} \\
+\left(
+\begin{array}{ccccc|c}
+    1 & -1 &   &   &   & a_1 \\
+      & 1 & -1 &   &   & a_2 \\
+      &   & 1 & -1 &   & a_3 \\
+      &   &   & 1 & -1 & a_4 \\
+      &   & -1  &   & 1 & b_2 \\
+\end{array}
+\right) 
+& \stackrel{R_5 + R_3}{\longrightarrow} 
+\left(
+\begin{array}{ccccc|c}
+    1 & -1 &   &   &   & a_1 \\
+      & 1 & -1 &   &   & a_2 \\
+      &   & 1 & -1 &   & a_3 \\
+      &   &   & 1 & -1 & a_4 \\
+      &   &   & -1  & 1 & b_3 \\
+\end{array}
+\right) 
+ \stackrel{R_5 + R_4}{\longrightarrow} \\
+\left(
+\begin{array}{ccccc|c}
+    1 & -1 &   &   &   & a_1 \\
+      & 1 & -1 &   &   & a_2 \\
+      &   & 1 & -1 &   & a_3 \\
+      &   &   & 1 & -1 & a_4 \\
+      &   &   &    & 0 & b_4 \\
+\end{array}
+\right) ,
+\end{aligned}
+\]
+
+所以 $b_4 = 0$ 时方程有无穷多解, 而 $b_4 \not= 0$ 时方程无解. 有解时, 方程的解为
+\[
+    \left\{
+    \begin{aligned}
+    x_1 &{}={} & a_1 + a_2 + a_3 + a_4 + t, \\
+    x_2 &{}={} & a_2 + a_3 + a_4 + t, \\
+    x_3 &{}={} & a_3 + a_4 + t, \\
+    x_4 &{}={} & a_4 + t, \\
+    x_5 &{}={} & t. 
+    \end{aligned}
+    \right.
+\]
+
+\newpage
+\subsection*{问题4}
+
+为了避免因 $\lambda = 0$ 而不能除以 $\lambda$, 把第三个方程换到第一行来消元.
+\[
+\left(
+\begin{array}{ccc|c}
+    1 & 1 & \lambda & \lambda^2 \\
+    1 & \lambda & 1 & \lambda^1 \\
+    \lambda & 1 & 1 & 1
+\end{array}
+\right)
+\to 
+\left(
+\begin{array}{ccc|c}
+    1 & 1 & \lambda & \lambda^2 \\
+    0 & \lambda - 1 & 1 - \lambda & \lambda - \lambda^2 \\
+    0 & 1 - \lambda & 1 - \lambda^2 & 1 - \lambda^3
+\end{array}
+\right)
+\to 
+\left(
+\begin{array}{ccc|c}
+    1 & 1 & \lambda & \lambda^2 \\
+    0 & \lambda - 1 & 1 - \lambda & \lambda - \lambda^2 \\
+    0 & 0 & 2 - \lambda - \lambda^2 & 1 + \lambda - \lambda^2 - \lambda^3
+\end{array}
+\right),
+\]
+
+\begin{enumerate}
+    \item 如果阶梯头 $\lambda - 1$ 和 $2 - \lambda - \lambda^2$ 都非零, 那么方程一定有唯一解. 其解为
+\[
+    \left\{
+    \begin{alignedat}{2}
+    x_1 &{}= & -\dfrac{1 + \lambda}{2 + \lambda}, \\
+    x_2 &{}= & \dfrac{1}{2 + \lambda}, \\
+    x_3 &{}= & \dfrac{(1 + \lambda)^2}{2 + \lambda}.
+    \end{alignedat}
+    \right.
+\]
+    \item 如果阶梯头并非皆非零:
+    \begin{enumerate}
+        \item $\lambda = 1$. 此时方程组消元为
+        \[
+        \left(
+        \begin{array}{ccc|c}
+            1 & 1 & 1 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{array}
+        \right),
+        \]
+        可见方程有解, 且有无穷多解. 此时解为 $x_1 = 1 - x_2 - x_3$.
+        \item $\lambda = -2$. 此时方程组消元为
+        \[
+        \left(
+        \begin{array}{ccc|c}
+            1 & 1 & -2 & 4 \\
+            0 & -3 & 3 & -6 \\
+            0 & 0 & 0 & 3
+        \end{array}
+        \right),
+        \]
+        可见方程无解.
+    \end{enumerate}
+\end{enumerate}

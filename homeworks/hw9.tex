@@ -1,0 +1,119 @@
+\title{第十周作业}
+\author{洪艺中}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 5.4 题目 7 (1)(2) }
+\begin{solution}
+\begin{enumerate}
+    \item[(1)] 直线的方向与平面法向的内积是 $(-2, -7, 3) \cdot (4, -2, -3) = -3$, 所以相交;
+    \item[(2)] 相交.  
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 9 (1) }
+\begin{solution}
+法向内积非零, 所以相交.
+\end{solution}
+
+\subsection*{ 题目 10 }
+\begin{solution}
+\begin{enumerate}
+    \item[(1)] $\cos \theta = |(1, 1, 0) \cdot (3, 0, 0)| / (|(1, 1, 0)||(3, 0, 0)|) = \frac{\sqrt{2}}{2}$, 所以角是 $\frac{\pi}{4}$;
+    \item[(2)] $\cos \theta = |(7, 2, 1) \cdot (15, 8, -1)| / (|(7, 2, 1)||(15, 8, -1)|) = \frac{4\sqrt{435}}{87}$.
+\end{enumerate}
+\end{solution}
+
+\section{第二部分}
+
+\subsection*{ 习题 5.4 题目1 }
+\begin{solution}
+    点向方程是
+\[
+\mlv(t) = (0, 1, 2)t + (1, 1, 1).
+\]
+\end{solution}
+
+\subsection*{ 题目3 (1)(3) }
+\begin{solution}
+\begin{enumerate}
+    \item[(1)] 平行;
+    \item[(2)] 相交.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目4 (2)(3) }
+\begin{solution}
+\begin{enumerate}
+    \item[(2)] $d = \frac{4}{17}\sqrt{170}$, 公垂线
+    \[
+    \begin{cases}
+        61x - 78y + 15z + 80 = 0, \\
+        14x + 3y - 30z + 25 = 0.
+    \end{cases}
+    \]
+    \item[(3)] $d = \frac{3}{7}\sqrt{35}$, 公垂线
+    \[
+    \begin{cases}
+        x - 3z + 1 = 0, \\
+        37x + 20y - 11z + 122 = 0.
+    \end{cases}
+    \]
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 5 }
+\begin{solution}
+证明: 两条直线的公共法向是
+\[
+(0, -b, c) \times (a, 0, c) = (-bc, ac, ab),
+\]
+两条直线上分别取点 $(0, b, 0)$, $(a, 0, 0)$, 计算距离得到
+\[
+2d = \frac{(a, -b, 0) \cdot (-bc, ac, ab)}{|(-bc, ac, ab)|} = |\frac{-2abc}{\sqrt{b^2c^2 + c^2a^2 + a^2b^2}}|,
+\]
+平方得到
+\[
+d^2 = \frac{(abc)^2}{b^2c^2 + c^2a^2 + a^2b^2},
+\]
+取倒数即得
+\[
+\frac{1}{d^2} = \frac{1}{a^2} + \frac{1}{b^2} + \frac{1}{c^2}.
+\]
+\end{solution}
+
+\subsection*{ 题目6(2) }
+\begin{solution}
+夹角的余弦是  $\cos \theta = \frac{17}{45}$.
+\end{solution}
+
+\subsection*{ 习题 5.5 题目1(1) }
+\begin{solution}
+首先证明三个平面属于同一个平面束. 前两个平面法向量的内积是 $(2, -1, 0) \times (1, 2, 1) = 0$, 所以法方向正交, 因此两平面相交. 二者确定的平面束方程是
+\[
+\lambda (2x - y + 1) + \mu (x + 2y + z + 2) = 0,
+\]
+观察得到, 取 $\lambda = \mu = 1$ 时, 得到的方程就是第三个方程. 因此三者在同一平面束上.
+
+(1) 如果要过点 $(1, 0, 1)$, 代入解出 $\lambda = 4$, $\mu = -3$, 方程是
+\[
+5x - 10y - 3z - 2 = 0.
+\]
+\end{solution}
+
+\subsection*{ 题目 2 (2)(4) }
+\begin{solution}
+\begin{enumerate}
+    \item[(2)] $12x + 39y + 3z - 1 = 0$;
+    \item[(4)] 平面有两个, 分别是 $2x - 9y - 6z + 4 = 0$ 和 $6x + 3y + 2z - 8 = 0$.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+这条交线在 $Ox$ 和 $Oy$ 上的交点分别是 $(1, 0, 0)$ 和 $(0, 2, 0)$, 因为其与三坐标平面构成了一个体积为 $2$ 的四面体, 所以其在 $Oz$ 上的截距应该是 $6$. 因此可以写出截距式方程
+\[
+\frac{x}{1} + \frac{y}{2} + \frac{z}{\pm 6} = 1.
+\]
+\end{solution}

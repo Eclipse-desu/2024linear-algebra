@@ -1,0 +1,359 @@
+\title{第六周作业}
+\author{洪艺中}
+\maketitle
+\section{第一次作业}
+\subsection*{72页 题目4 (1)}
+\begin{problem*}
+设 $\field$ 是一个数域, 矩阵 $\mat{A} \in \field^{m \times m}$, $\mat{B} \in \field^{m \times n}$, $\mat{C} \in \field^{n \times m}$, $\mat{D} \in \field^{n \times n}$. 如果 $\mat{A}$, $\mat{D}$ 可逆, 证明
+\[
+|\mat{A} + \mat{B}\mat{D}^{-1}\mat{C}||\mat{D}| = |\mat{A}||\mat{D} + \mat{C}\mat{A}^{-1}\mat{B}|.
+\]
+\end{problem*}
+\begin{solution}
+构造
+\[
+\mat{M} := 
+\begin{pmatrix}
+    \mat{A} & \mat{B} \\
+    -\mat{C} & \mat{D}
+\end{pmatrix}.
+\]
+
+由于 $\mat{A}$ 可逆, 借助分块矩阵的初等行变换, 用第一行的 $\mat{A}$ 消掉第二行的 $\mat{C}$ 得到
+\[
+\begin{pmatrix}
+    \mat{E}_m &  \\
+    \mat{C}\mat{A}^{-1} & \mat{E}_n
+\end{pmatrix}
+\begin{pmatrix}
+    \mat{A} & \mat{B} \\
+    -\mat{C} & \mat{D}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    \mat{A} & \mat{B} \\
+            & \mat{D} + \mat{C}\mat{A}^{-1}\mat{B}
+\end{pmatrix},
+\]
+所以
+\[
+|\mat{M}| = |\mat{A}||\mat{D} + \mat{C}\mat{A}^{-1}\mat{B}|.
+\]
+
+由于 $\mat{D}$ 可逆, 借助分块矩阵的初等行变换, 用第二行的 $\mat{D}$ 消掉第一行的 $\mat{B}$ 得到
+\[
+\begin{pmatrix}
+    \mat{E}_m & -\mat{B}\mat{D}^{-1} \\
+     & \mat{E}_n
+\end{pmatrix}
+\begin{pmatrix}
+    \mat{A} & \mat{B} \\
+    -\mat{C} & \mat{D}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    \mat{A} + \mat{B}\mat{D}^{-1}\mat{C} &  \\
+    -\mat{C} & \mat{D} 
+\end{pmatrix},
+\]
+所以
+\[
+|\mat{M}| = |\mat{A} + \mat{B}\mat{D}^{-1}\mat{C}||\mat{D}|.
+\]
+
+综上可知
+\[
+    |\mat{A}||\mat{D} + \mat{C}\mat{A}^{-1}\mat{B}| = |\mat{A} + \mat{B}\mat{D}^{-1}\mat{C}||\mat{D}|.
+\]
+\end{solution}
+
+\newpage
+\subsection*{题目 5}
+\begin{problem*}
+设 $\mat{A}$ 是 $n$ 阶可逆矩阵, $\mat{\alpha}$, $\mat{\beta}$ 是两个 $n$ 元列向量. 证明:
+\[
+\left| \mat{A} + \mat{\alpha}\mat{\beta}^{\top} \right| = |\mat{A}|(1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}).
+\]
+\end{problem*}
+\begin{solution}
+利用上一个题的结论. 取题目 4 中的 $\mat{A}$、$\mat{B}$、$\mat{C}$、$\mat{D}$ 分别为 $\mat{A}$、$\mat{\alpha}$、$\mat{\beta}^{\top}$、$\mat{E}_1$. 所以
+\[
+    |\mat{A}||\mat{D} + \mat{C}\mat{A}^{-1}\mat{B}| = |\mat{A}||\mat{E}_1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}|,
+\]
+\[
+    |\mat{A} + \mat{B}\mat{D}^{-1}\mat{C}||\mat{D}| = |\mat{A} + \mat{\alpha}\mat{\beta}^{\top}|,
+\]
+所以
+\[
+    \left|\mat{A} + \mat{\alpha}\mat{\beta}^{\top}\right| = |\mat{A}||\mat{E}_1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}|.
+\]
+右边项里, $\mat{E}_1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}$ 是一个 $1 \times 1$ 的矩阵. 根据矩阵的加法、乘法以及数乘的法则, 可以构造 $1 \times 1$ 矩阵空间 $\field^{1 \times 1}$ 和数域 $\field$ 之间的一个双射 $\mathrm{i} \colon \field^{1 \times 1} \to \field$, 把矩阵 $(a)$ 映射到 $a$. 这个映射不仅是双射, 它还保持了两个空间上的加法、乘法运算以及所有的运算性质, 例如交换律、分配律等等. 这说明 $1 \times 1$ 矩阵空间可以视为与数域等同的, 即 $\mat{E}_1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}$ 也可以看成一个数 $1 + |\mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}|$. 有了这种观念, 我们就可以自由地混用 $1 \times 1$ 矩阵和数了. 因此可以把结论写成
+\[
+    \left| \mat{A} + \mat{\alpha}\mat{\beta}^{\top} \right| = |\mat{A}|(1 + \mat{\beta}^{\top}\mat{A}^{-1}\mat{\alpha}).
+\]
+\end{solution}
+
+\newpage
+\subsection*{76页 题目1}
+\begin{enumerate}
+    \item 2;
+    \item 4;
+    \item 5;
+    \item \begin{flalign*} & \begin{cases}
+        3 & k \not= 2 \\
+        2 & k = 2
+    \end{cases}. &
+\end{flalign*}
+\end{enumerate}
+
+\subsection*{题目 2}
+\begin{problem*}
+设 $n$ 阶非奇异矩阵 $\mat{A}$ 中每行元素之和都等于常数 $c$, 证明 $c \not= 0$ 且 $\mat{A}^{-1}$ 中每行元素之和都等于 $c^{-1}$.
+\end{problem*}
+\begin{solution}
+首先如果 $c = 0$, 那么矩阵的行列式为 $0$, 则矩阵不可逆. 因此 $c \not= 0$.
+
+接着考虑 $\mat{A}^{-1}$ 中元素的和. $\mat{A}^{-1} = \mat{A}^{\ast} / |\mat{A}|$, 那么第 $i$ 行元素的和可以表示为
+\[
+\dfrac{1}{|\mat{A}|}\sum_{j = 1}^{n} \mat{A}_{ji}, \tag{$\ast$}
+\]
+其中 $\mat{A}_{ji}$ 表示 $\mat{A}$ 的代数余子式. 这个形式让我们想到利用 Cramer 法则.
+
+设
+\[
+\mat{x} := 
+\begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{pmatrix}
+, \qquad
+\mat{b} :=
+\begin{pmatrix}
+    1 \\
+    1 \\
+    \vdots \\
+    1
+\end{pmatrix},
+\]
+并且设 $\mat{B}_i$ 表示用 $\mat{b}$ 替换 $\mat{A}$ 的第 $i$ 列得到的矩阵. 那么线性方程组 $\mat{A}\mat{x} = \mat{b}$ 的解可以表示为 
+\[
+x_i = \dfrac{|\mat{B}_i|}{|\mat{A}|}. \tag{$\ast\ast$}
+\]
+而 $\mat{A}$ 每行的所有元素之和为 $c$, 所以
+\[
+\mat{x} := 
+\begin{pmatrix}
+    c^{-1} \\
+    c^{-1} \\
+    \vdots \\
+    c^{-1}
+\end{pmatrix}
+\]
+是方程的一个解, 同时因为 $\mat{A}$ 可逆, 其也是唯一解. 因此根据 ($\ast\ast$) 式,对任何 $i$,
+\[
+    c^{-1} = \dfrac{|\mat{B}_i|}{|\mat{A}|},
+\]
+而
+\[
+    \dfrac{|\mat{B}_i|}{|\mat{A}|} = \dfrac{1}{|\mat{A}|}\sum_{j = 1}^{n}\mat{A}_{ji},
+\]
+观察上式和 ($\ast$) 式, 可见两者是一样的. 所以 $\mat{A}^{-1}$ 每行元素的和就是 $c^{-1}$.
+\end{solution}
+
+\newpage
+\section{第二部分}
+\subsection*{80页 题目1(3)}
+首先可以很容易验证这样的结论:
+\begin{proposition}
+    对于二阶矩阵 $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, 其可逆的充要条件是 $ad - bc = 0$. 如果可逆, 那么其逆为
+    \[
+    \dfrac{1}{ad - bc}
+    \begin{pmatrix}
+        d & -b \\
+        -c & a
+    \end{pmatrix}.
+    \]
+    也就是经过以下三步得到
+    \begin{enumerate}
+        \item 交换主对角的两个元素 $a$, $d$ 的位置;
+        \item 给副对角的两个元素 $b$, $c$ 加上负号;
+        \item 乘上行列式 $ad - bc$ 的倒数.
+    \end{enumerate}
+\end{proposition}
+
+回到题目. 有了刚才的工具, 可以瞬间算出
+\[
+\begin{pmatrix}
+    1 & 4 \\ -1 & 2
+\end{pmatrix}^{-1}
+=\frac{1}{6}
+\begin{pmatrix}
+    2 & -4 \\ 1 & 1
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+    2 & 0 \\ -1 & 1
+\end{pmatrix}^{-1}
+=\frac{1}{2}
+\begin{pmatrix}
+    1 & 0 \\ 1 & 2
+\end{pmatrix},
+\]
+所以
+\[
+\mat{X} = \frac{1}{6}
+\begin{pmatrix}
+    2 & -4 \\ 1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+    3 & 1 \\ 0 & -1
+\end{pmatrix}
+\frac{1}{2}
+\begin{pmatrix}
+    1 & 0 \\ 1 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+    1 & 1 \\ \frac{1}{4} & 0
+\end{pmatrix}.
+\]
+
+\subsection*{题目 2}
+\[
+    \mat{A}_1^{-1} = \left(\begin{matrix}
+        \frac{1}{3} & \frac{1}{6} & \frac{2}{3} \\
+        \frac{1}{3} & \frac{1}{6} & \frac{-1}{3} \\
+        \frac{-1}{3} & \frac{1}{3} & \frac{1}{3}
+    \end{matrix}\right), \qquad 
+    \mat{A}_2^{-1} = \left(\begin{matrix}
+        \frac{-1}{8} & \frac{1}{4} & \frac{-3}{8} \\
+        \frac{1}{2} & 0 & \frac{-1}{2} \\
+        \frac{-1}{8} & \frac{1}{4} & \frac{5}{8}
+    \end{matrix}\right)
+\]
+
+\newpage
+\subsection*{83页 题目2}
+\begin{problem*}
+设 $\mat{A} \in \field^{r \times r}$, $\mat{B} \in \field^{s \times s}$, $\mat{C} \in \field^{s \times r}$, 证明 $r\left(\begin{pmatrix} \mat{A} & \mat{O} \\ \mat{O} & \mat{B} \end{pmatrix}\right) \leqslant r\left(\begin{pmatrix} \mat{A} & \mat{O} \\ \mat{C} & \mat{B} \end{pmatrix}\right)$.
+\end{problem*}
+\begin{proof}
+右边矩阵的秩是 $r(\mat{A}) + r(\mat{B})$. 为了证明这个不等式, 我们只需要在右边的矩阵中找到一个 $r(\mat{A}) + r(\mat{B})$ 阶的非零子式. 记 $s := r(\mat{A})$, $t = r(\mat{B})$. 设 
+$\mat{A}\begin{pmatrix}
+    i_1 & i_2 & \cdots & i_s \\
+    j_1 & j_2 & \cdots & j_s
+\end{pmatrix}$ 是 $\mat{A}$ 的一个 $s$ 阶非零子式, 
+$\mat{B}\begin{pmatrix}
+    k_1 & k_2 & \cdots & k_t \\
+    l_1 & l_2 & \cdots & l_t
+\end{pmatrix}$ 是 $\mat{B}$ 的一个 $t$ 阶非零子式. 那么取不等式右边矩阵(记为 $\mat{M}$)的 $r + s$ 阶子式
+$\mat{M}\begin{pmatrix}
+    i_1 & i_2 & \cdots & i_s & r + k_1 & r + k_2 & \cdots & r + k_t \\
+    j_1 & j_2 & \cdots & j_s & r + l_1 & r + l_2 & \cdots & r + l_t
+\end{pmatrix}$
+这个子式可以表示为
+\[
+    \begin{pmatrix}
+        \mat{A}_{r \times r} & \mat{O}_{r \times s} \\
+        \mat{C}_{s \times r} & \mat{B}_{s \times s}
+    \end{pmatrix},
+\]
+其中 $\mat{A}_{r \times r}$ 和 $\mat{B}_{s \times s}$ 就是从 $\mat{A}$ 和 $\mat{B}$ 中选取的那两个子式. 而 $\mat{C}_{s \times r}$ 中的元素都来自 $\mat{C}$. 根据分块矩阵的行列式计算规律, 这个子式的行列式为 $|\mat{A}_{r \times r}||\mat{B}_{s \times s}| \not= 0$. 所以这就说明了 $r(\mat{M}) \geqslant r + s$. 因此原不等式得证.
+\end{proof}
+
+\newpage
+\subsection*{题目 3}
+\begin{problem*}
+证明
+\[
+r(\mat{A}) + r(\mat{B}) \geqslant r\left(\begin{matrix}\mat{A} \\ \mat{B} \end{matrix}\right) \geqslant \max\{r(\mat{A}, r(\mat{B}))\}.
+\]
+\end{problem*}
+\begin{proof}
+设 $\mat{A}$ 是 $m_1 \times n$ 的,  $\mat{B}$ 是 $m_2 \times n$ 的. 并记 $\mat{M} := \left(\begin{matrix}\mat{A} \\ \mat{B} \end{matrix}\right)$.
+
+先证明右边的不等号. 因为 $\mat{A}$ 和 $\mat{B}$ 的子式都是 $\mat{M}$ 的子式, 所以 $r(\mat{M}) \geqslant r(\mat{A})$ 且 $r(\mat{M}) \geqslant r(\mat{B})$. 因此 $r(\mat{M}) \geqslant \max\{r(\mat{A}, r(\mat{B}))\}$.
+
+再证明左边的不等号. 利用初等变换可以把 $\mat{M}$ 中的 $\mat{B}$ 部分变为标准形, 即若
+\[
+    \mat{P}\mat{B}\mat{Q} = \begin{pmatrix}
+        \mat{E_s} & \mat{O} \\
+        \mat{O} & \mat{O}
+    \end{pmatrix},
+\]
+那么
+\[
+\begin{pmatrix}
+    \mat{E}_{m_1} & \\
+    & \mat{P}
+\end{pmatrix}
+\begin{pmatrix}
+    \mat{A} \\
+    \mat{B}
+\end{pmatrix}
+\mat{Q}
+=
+\begin{pmatrix}
+    \multicolumn{2}{c}{\mat{A}\mat{Q}} \\
+    \mat{E_s} & \mat{O} \\
+    \mat{O}_{(m_2 - s) \times s} & \mat{O}_{(m_2 - s) \times (n - s)}
+\end{pmatrix}
+\]
+
+因为添加一个零行, 不会出现更高阶的非零子式, 所以矩阵的秩不会变化. 因此上面这个矩阵的最后 $m_2 - s$ 行去掉也不会影响矩阵的秩. 因此 $\mat{M}$ 的秩相比 $\mat{A}$ 的秩最多增加 $s$. 所以其秩不大于 $r(\mat{A}) + s = r(\mat{A}) + r(\mat{B})$. 即
+\[
+r(\mat{A}) + r(\mat{B}) \geqslant r\left(\begin{matrix}\mat{A} \\ \mat{B} \end{matrix}\right).
+\]
+
+因此不等式得证.
+\end{proof}
+
+\newpage
+\subsection*{86页 题目3}
+题目略.
+\begin{proof}
+    记这个方程组为 $\mat{A}\mat{x} = \mat{b}$, 则题目中的条件等于是说
+    \[\mat{B} = 
+    \begin{pmatrix}
+        \mat{A} & \mat{b} \\
+        \mat{b}^\top & 0
+    \end{pmatrix}
+    \]
+    的秩等于 $\mat{A}$ 的秩. 那么 $\begin{pmatrix} \mat{A} & \mat{b} \end{pmatrix}$ 作为 $\mat{B}$ 的子阵, 其秩不超过 $\mat{B}$ 的秩, 所以 $r\begin{pmatrix} \mat{A} & \mat{b} \end{pmatrix} \leqslant r(\mat{B}) = r(\mat{A})$; 而 $\mat{A}$ 又是 $\begin{pmatrix} \mat{A} & \mat{b} \end{pmatrix}$ 的子阵, 所以 $r\begin{pmatrix} \mat{A} & \mat{b} \end{pmatrix} \geqslant r(\mat{A})$. 综上 $r\begin{pmatrix} \mat{A} & \mat{b} \end{pmatrix} = r(\mat{A})$, 因此方程组有解.
+\end{proof}
+
+\subsection*{题目4}
+题目略.
+\begin{proof}
+    考虑方程组
+    \[
+        \left\{
+        \begin{aligned}
+            a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n + b_1 x_{n+1} = 0 \\
+            a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n + b_2 x_{n+1} = 0 \\
+            \vdots \\
+            a_{n1} x_1 + a_{n2} x_2 + \cdots + a_{nn} x_n + b_n x_{n+1} = 0 \\
+            a_{n+1, 1} x_1 + a_{n+1, 2} x_2 + \cdots + a_{n+1, n} x_n + b_{n+1} x_{n+1} = 0
+        \end{aligned}
+        \right.
+    \]
+
+    这是一个 $n + 1$ 个方程构成的关于 $n + 1$ 个未知数的齐次线性方程组, 所以其一定有解. 而如果原方程组有解, $x_1$ 到 $x_n$ 取原方程组的解, 并取 $x_{n + 1} = -1$, 就成了这个线性方程组的一组非零解. 这说明这个线性方程组至少有两组解: 零解和 $x_{n + 1} = -1$ 的解. 所以这个方程组没有唯一解, 因此其系数矩阵不可逆, 行列式为 $0$.
+\end{proof}
+不充分的例子: $n = 1$, $a_{11} = a_{21} = 0$, $b_1 = b_2 = 1$. 那么
+\[
+\left|\begin{matrix}
+    0 & 1 \\ 0 & 1
+\end{matrix}\right| = 0,
+\]
+但是方程组是两个 $0 = 1$ 的方程, 没有解.
+
+\newpage
+\subsection*{89页 题目8}
+\begin{problem*}
+    设 $\mat{A}$ 是 $n(n > 2)$ 阶方阵. 证明 $|\mat{A}^{\ast}| = |\mat{A}|^{n - 1}$.
+\end{problem*}
+\begin{proof}
+    如果 $\mat{A}$ 可逆, 那么 $|\mat{A}^\ast| = |\mat{A}|^n|\mat{A}^{-1}| = |\mat{A}|^{n - 1} $; 如果 $\mat{A}$ 不可逆, 那么如果 $|\mat{A}^\ast| \not= 0$, 就存在 $\mat{B}$ 使 $\mat{A}^\ast \mat{B} = \mat{E}$. 而 $\mat{A}\mat{A}^\ast = \mat{O}$, 所以 $\mat{A} = \mat{A}(\mat{A}^\ast\mat{B}) = (\mat{A}\mat{A})^\ast\mat{B} = \mat{O}$. 而此时 $\mat{A}^\ast = \mat{O}$, 与假设 $|\mat{A}^\ast| \not= 0$ 矛盾. 所以 $\mat{A}$ 不可逆时, $|\mat{A}^\ast| = 0 = |\mat{A}|^{n - 1}$. 命题得证.
+\end{proof}

@@ -1,0 +1,222 @@
+\title{第十五周作业}
+\author{洪艺中\thanks{本学期的作业及源文件已经上传到 {github}: \url{https://github.com/Eclipse-desu/2024linear-algebra}; QQ: 178201223}}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 10.1 题目 1 }
+\begin{solution}
+\begin{enumerate}
+    \item[(1)] \[
+        f(x_1, x_2, x_3) = (x_1 + x_2)^2 + (x_2 + 2x_3)^2 - 3x_3^2,
+    \]
+    做线性替换
+    \[
+    \begin{cases}
+        z_1 = x_1 + x_2, \\
+        z_2 = x_2 + 2x_3, \\
+        z_3 = x_3,
+    \end{cases}
+    \]
+    得到
+    \[
+        f(z_1, z_2, z_3) = z_1^2 + z_2^2 - 3z_3^2.
+    \]
+    \item[(3)] \[
+        f(x_1, x_2, x_3) = 2(x_1 - x_2)^2 - (x_2 + 2x_3)^2 + 4x_3^2,
+    \]
+    做线性替换
+    \[
+    \begin{cases}
+        z_1 = x_1 - x_2, \\
+        z_2 = x_2 + 2x_3, \\
+        z_3 = x_3,
+    \end{cases}
+    \]
+    得到
+    \[
+        f(z_1, z_2, z_3) = 2z_1^2 - z_2^2 + 4z_3^2.
+    \]
+\end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{ 习题 10.2 题目 1 }
+\begin{solution}
+记 $\mm$ 为第 $k$ 列只有第 $i_k$ 行的元素是 $1$, 其他元素皆 $0$ 的矩阵. 则 $\mm$ 每行每列都只有一个元素是 $1$, 并且当这个矩阵与单位向量 $\mle_s$ 相乘时, 只有第 $s$ 列为 $1$ 的那一行乘出来才不是 $0$. 根据 $\mm$ 的定义, 只有第 $i_s$ 行的第 $s$ 列元素是 $1$, 因此
+\[
+    \mm \mle_s = \mle_{i_s},
+\]
+那么可以写出对一般的 $\mlx = \begin{pmatrix} x_1 & x_2 & \cdots & x_n \end{pmatrix}^\top$,
+\[
+    \mm \mlx = \begin{pmatrix} x_{i_1} \\ x_{i_2} \\ \vdots \\ x_{i_n} \end{pmatrix},
+\]
+考虑用 $\mm$ 做合同变换. 我们记题目中的第一个对角阵为 $\ma$, 第二个为 $\mb$, 那么
+\[
+\mlx^\top \mm^\top \mb \mm \mlx = \begin{pmatrix} x_{i_1} & x_{i_2} & \cdots & x_{i_n} \end{pmatrix} \mb \begin{pmatrix} x_{i_1} \\ x_{i_2} \\ \vdots \\ x_{i_n} \end{pmatrix} = \sum_{t = 1}^{n} \lambda_{i_t}x_{i_t}^2 = \mlx^{\top} \ma \mlx,
+\]
+因为两个矩阵都是对称的, 因此 $\ma$ 和 $\mb$ 合同, $\ma = \mm^\top \mb \mm$.
+\end{solution}
+
+\subsection*{ 题目 2 }
+\begin{solution}
+二次型对应的矩阵是对称的, 所以只需要把 $\ma$ 『变成』对称矩阵. 即
+\[
+\frac{1}{2}(\ma + \ma^{\top}).
+\]
+\end{solution}
+
+\newpage
+\section{第二部分}
+\subsection*{ 习题 10.3 题目 2 }
+\begin{solution}
+在实数域上, 合同变换不改变惯性指数, 所以二者不合同. 在复数域上, 可以取 $\mm = \mathrm{i}\me$, $\mm^\top \me \mm = -\me$.
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+根据惯性定理, 正惯性指数 $p$ 和 矩阵的秩 $r$ 相同的矩阵在同一个合同类里. 所以一共有 $(n + 2)(n + 1) / 2$ 种.
+\end{solution}
+
+\subsection*{ 题目 5 }
+\begin{solution}
+这个二次型对应的矩阵是
+\[
+\ma = \begin{pmatrix}
+    0 & \frac{1}{2} & \cdots & \frac{1}{2} \\
+    \frac{1}{2} & 0 & \cdots & \frac{1}{2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{1}{2} & \frac{1}{2} & \cdots & 0
+\end{pmatrix},
+\]
+为了计算其规范形, 我们只需要了解其惯性指数. 为此, 计算其特征多项式, 为方便计算, 设 $u = \lambda + \frac{1}{2}$, 记所有位置都是 $1$ 的向量为 $\mla = (1, 1, \cdots, 1)^{\top}$, 利用秩一校正公式,
+\[
+|\lambda \me - \ma| = |u \me - \frac{1}{2}\mla\mla^\top| = |u\me||1 - \frac{1}{2}\mla^\top \frac{1}{u}\me \mla| = u^{n - 1}(u - \frac{n}{2}),
+\]
+所以 $u = \frac{n}{2}$ 或 $u = 0$($n - 1$ 重). 所以特征值 $\lambda = \frac{n - 1}{2}$ 和 $\lambda = -\frac{1}{2}$($n - 1$ 重). 故规范形是
+\[
+f = z_1^2 - z_2^2 - \cdots - z_n^2.
+\]
+\end{solution}
+
+\newcommand{\mpp}{\mat{P}}
+\subsection*{ 习题 10.4 题目 2 }
+\begin{solution}
+记二次型对应的矩阵是
+\[
+\ma = \left(\begin{matrix}
+    1 & b & 1 \\
+    b & a & 1 \\
+    1 & 1 & 1
+    \end{matrix}\right),
+\]
+根据条件, 其合同于对角阵
+\[
+\mpp^\top \ma \mpp = \mathrm{diag}(0, 1, 4),
+\]
+因为 $\mpp$ 是正交替换对应的矩阵, 所以是正交矩阵, 因此上式同时也是相似变换. 故因为迹是相似变换的不变量, $1 + a + 1 = 5$, $a = 3$. 同时, $\ma$ 的行列式为 $0$ 可以解出 $b = 1$. $\mpp$ 可以取
+\[
+\mpp = \left(\begin{matrix}
+    \frac{-\sqrt{2}}{2} & \frac{\sqrt{3}}{3} & \frac{\sqrt{6}}{6} \\
+    0 & \frac{-\sqrt{3}}{3} & \frac{\sqrt{6}}{3} \\
+    \frac{\sqrt{2}}{2} & \frac{\sqrt{3}}{3} & \frac{\sqrt{6}}{6}
+    \end{matrix}\right)
+\]
+\end{solution}
+
+\subsection*{ 习题 10.5 题目1(2) }
+\begin{solution}
+利用正交替换同时也是相似对角化, 
+\[
+\mpp ^\top \left(\begin{matrix}
+    2 & 0 & 0 \\
+    0 & 3 & a \\
+    0 & a & 3
+    \end{matrix}\right) \mpp = \left(\begin{matrix}
+        1 & 0 & 0 \\
+        0 & 2 & 0 \\
+        0 & 0 & 5
+        \end{matrix}\right),
+\]
+解特征方程得到 $a = 2$, 
+\[
+\mpp = \left(\begin{matrix}
+    0 & 1 & 0 \\
+    -\frac{\sqrt{2}}{2} & 0 & \frac{\sqrt{2}}{2} \\
+    \frac{\sqrt{2}}{2} & 0 & \frac{\sqrt{2}}{2}
+    \end{matrix}\right)
+\]
+\end{solution}
+
+\subsection*{ 题目 2 }
+\begin{solution}
+取 $\mle_i$, $a_{ii} = \mle_i^\top \ma \mle_i \geqslant 0$.
+\end{solution}
+
+\subsection*{ 题目 4(2) }
+\begin{solution}
+写成矩阵
+\[
+    \left(\begin{matrix}
+        t & 1 & 1 & 0 \\
+        1 & t & -1 & 0 \\
+        1 & -1 & t & 0 \\
+        0 & 0 & 0 & 1
+        \end{matrix}\right),
+\]
+若要正定, 其顺序主子式皆正. 计算顺序主子式为 $t$, $t^2 - 1$, $t^3 - 3t - 2$, $t^3 - 3t - 2$. 四者都正, 得到 $t > 2$.
+\end{solution}
+
+\subsection*{ 题目 6 }
+\begin{solution}
+取 $\mlx = (x_1, \cdots, x_n)^\top \not= \mat{\theta}$,
+\[
+\begin{aligned}
+\mlx^\top \ma \mlx 
+={}& \sum_{i = 1}^{n} x_i \left( (1 - \frac{1}{n}) x_i + \sum_{j = 1}^n \frac{1}{n}x_j \right) \\
+={}& (1 - \frac{1}{n})\sum_{i = 1}^{n} x_i^2 + \sum_{i = 1}^{n}\sum_{j = 1}^n \frac{1}{n}x_ix_j \\
+={}& (1 - \frac{1}{n})\sum_{i = 1}^{n} x_i^2 + \frac{1}{n} \left( \sum_{i = 1}^{n}x_i \right)^2 > 0,
+\end{aligned}
+\]
+因此正定.
+\end{solution}
+
+\newpage
+\subsection*{ 题目 7 }
+\begin{solution}
+\begin{enumerate}
+    \item 我们首先假设『任何绝对对角占优矩阵可逆』. 有此假设, 将矩阵 $\ma$ 分解为其对角部分 $\mb = \mathrm{diag}(a_{11}, a_{22}, \cdots, a_{nn})$ 和非对角部分 $\mc = \ma - \mb$. 考虑矩阵函数 $\ma(t) = \mb + t\mc$. 在 $t \in [-1, 1]$ 时, $\ma(t)$ 都是绝对对角占优的. 所以 $f(t) := \det \ma(t)$ 在 $[-1, 1]$ 上非零. 由于 $f(t)$ 是关于 $t$ 的多项式, 所以其连续. $f(0) = \det \mb > 0$, 则由介值定理知 $\det \ma = f(1) > 0$.
+    
+    下面证明这一假设. 为了证明可逆, 我们只需要证明 $\ma\mlx = \mat{\theta}$ 这个齐次方程组没有非零解. 不妨反设其有非零解 $\mlx = (x_1, \cdots, x_n)^\top$, 且 $x_k$ 是其中绝对值最大的下标, 即任取 $i$ 都有 $|x_k| \geqslant |x_i|$. 那么考虑 $\ma \mlx$ 的第 $k$ 行
+    \[
+    a_{k1} x_1 + \cdots + a_{kk} x_k + \cdots + a_{kn} x_n = 0,
+    \]
+    把 $a_{kk} x_k$ 移动到右边, 取绝对值得到
+    \[
+    a_{kk} |x_k| = |a_{k1} x_1 + \cdots + a_{k, k - 1} x_{k - 1} + a_{k, k + 1} x_{k + 1} + \cdots + a_{kn} x_n| \leqslant \sum_{j \not= k} |a_{kj}| |x_j| \leqslant \sum_{j \not= k} |a_{kj}| |x_k|,
+    \]
+    所以得到
+    \[
+        a_{kk}\leqslant \sum_{j \not= k} |a_{kj}|,
+    \]
+    但这与绝对对角占优的条件矛盾. 故反设不成立, 原假设成立.
+    \item 注意到绝对对角占优矩阵的顺序主子阵也是绝对对角占优的. 所以如果 $\ma$ 对称, 其顺序主子式也都正(由(1)), 那么其正定.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 8 }
+\begin{solution}
+    \begin{table}[h]
+        \begin{tabular}{rl}
+            {} & $\mb \ma \mb^\top$ 正定 \\
+            $\Leftrightarrow$ & 任取 $\mlx \not= \mat{\theta}$, $\mlx^\top \mb \ma \mb^\top \mlx > 0$ \\
+            $\Leftrightarrow$ & (由 $\ma$ 的正定性) 任取 $\mlx \not= 0$, $\mb^\top \mlx \not= \mat{\theta}$ \\
+            $\Leftrightarrow$ & $\mb^\top$ 列满秩, 即 $\mb$ 行满秩.
+        \end{tabular}
+    \end{table}
+\end{solution}
+
+\subsection*{ 题目 9 }
+\begin{solution}
+因为实对称矩阵可对角化, 所以如果其行列式是负的, 那么一定有一个负特征值 $\lambda < 0$ 和对应的特征向量 $\alpha$ 满足 $\ma \alpha = \lambda \alpha$. 那么 $\alpha^\top \ma \alpha = \lambda \alpha^\top \alpha < 0$.
+\end{solution}

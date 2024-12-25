@@ -1,0 +1,193 @@
+\title{第十二周作业}
+\author{洪艺中}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 6.6 题目 1 }
+\begin{solution}
+\begin{enumerate}
+    \item \[
+        \left(\begin{matrix}
+            2 & 3 & 4 \\
+            0 & -1 & -1 \\
+            -1 & 0 & 0
+            \end{matrix}\right).
+    \]
+    \item 由坐标可以写出
+    \[
+    \mat{\alpha} = \begin{pmatrix}
+        \mat{\alpha}_1 & \mat{\alpha}_2 & \mat{\alpha}_3
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 \\ 1 \\ 3
+    \end{pmatrix},
+    \]
+    上面的过渡矩阵 $\mm$ 满足
+    \[
+        \begin{pmatrix}
+            \mat{\beta}_1 & \mat{\beta}_2 & \mat{\beta}_3
+        \end{pmatrix}\mm^{-1}
+         = 
+        \begin{pmatrix}
+            \mat{\alpha}_1 & \mat{\alpha}_2 & \mat{\alpha}_3
+        \end{pmatrix},
+    \]
+    所以
+    \[
+        \mat{\alpha} = \begin{pmatrix}
+            \mat{\alpha}_1 & \mat{\alpha}_2 & \mat{\alpha}_3
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 \\ 1 \\ 3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \mat{\beta}_1 & \mat{\beta}_2 & \mat{\beta}_3
+        \end{pmatrix}\mm^{-1}
+        \begin{pmatrix}
+            1 \\ 1 \\ 3
+        \end{pmatrix}
+    \]
+    所以坐标是
+    \[
+        \mm^{-1}
+        \begin{pmatrix}
+            1 \\ 1 \\ 3
+        \end{pmatrix} = 
+        \left(\begin{matrix}
+            -3 \\ -11 \\ 10
+        \end{matrix}\right).
+    \]
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+取一组系数 $\lambda_1, \cdots, \lambda_n \in \mathbb{F}$, 第一组向量在这组系数下的线性组合是向量
+\[
+\mat{\alpha} = \lambda_1 + \lambda_2 x + \cdots + \lambda_n x^{n - 1},
+\]
+如果这个向量是零向量 $0$, 那么说明对任意 $x$,
+\[
+    \lambda_1 + \lambda_2 x + \cdots + \lambda_n x^{n - 1} = 0,
+\]
+所以每个系数都为 $0$\footnote{一种证明方法是: 如果多项式定义在复数域上, 则由代数基本定理可以证明 $f \equiv 0$; 如果不在复数域上, 则延拓多项式为复数域上的多项式, 利用复数域上的结论说明 $f \equiv 0$.}. 因此这组向量线性无关. 其个数等于 $\mathbb{F}[x]_n$ 的维数, 所以其是一组基. 对另一组基也同理.
+
+从第一组到第二组基的过渡矩阵是 $\mm = (c_{ij})$, 
+\[c_{ij} = 
+\begin{cases}
+    \binom{j - 1}{i - 1}(-a)^{j - i} & i \leqslant j, \\
+    0, & i > j.
+\end{cases}
+\]
+\end{solution}
+
+\subsection*{ 习题 6.7 题目 1(1) }
+\begin{solution}
+记 $\mb$ 的列为 $\mb = \begin{pmatrix} \mlb_1 & \mlb_2 & \cdots \mlb_t \end{pmatrix}$. 那么
+\[
+\ma \mb = \begin{pmatrix} \ma \mlb_1 & \ma \mlb_2 & \cdots \ma \mlb_t \end{pmatrix},
+\]
+由于 $\ma$ 列满秩, 所以 $\ma$ 的列可以看作是其列空间的一组基. 因此 $\mlb_i$ 可以看作 $\ma \mlb_i$ 在 $\ma$ 的列这组基下的坐标, 所以 $\begin{pmatrix} \ma \mlb_1 & \ma \mlb_2 & \cdots \ma \mlb_t \end{pmatrix}$ 这组向量和 $\begin{pmatrix} \mlb_1 & \mlb_2 & \cdots \mlb_t \end{pmatrix}$ 这组向量是 $\ma$ 列空间中的同一组向量, 其秩自然相等.
+\end{solution}
+
+\subsection*{ 题目 3(1) }
+\begin{solution}
+记 $m$ 个向量组成的那个向量组为 (I), 取出的部分组为 (I\!I). 取 (I\!I) 的一组基( $r_1$ 个 ), 并将这组基扩张为 (I) 的一组基(增加了 $r - r_1$ 个). 因为增加的向量必然在 (I\!I) 之外, 所以 $r - r_1 \leqslant m - s$, 即 $r_1 \geqslant r + s - m$.
+\end{solution}
+
+\subsection*{ 题目 6 }
+\begin{solution}
+``$\leftarrow$'': 若 $\ma = \mla \mlb^{\top}$, $\mla$ 是 $\ma$ 列空间的极大线性无关组, 所以其秩为 $1$.
+
+``$\rightarrow$'': 利用 $\ma$ 的标准形 $\ma = \mat{P} \me_11 \mq = \mat{P} \mle_1 \mle_1^{\top} \mq$, 可以构造出 $\mat{\alpha} = \mat{P} \mle_1$ 和 $\mat{\beta} = \mq^{\top} \mle_1$. 
+\end{solution}
+
+\subsection*{ 题目 7 }
+\begin{solution}
+如果其中有一组向量线性相关, 不妨设 $\mat{\alpha}$ 组线性相关(如果是 $\mat{\beta}$ 组, 对矩阵 $\ma$ 转置即可), 那么存在不全为 $0$ 的系数 $\lambda_1, \cdots, \lambda_n$,
+\[
+    \lambda_1 \mat{\alpha}_1 + \lambda_2 \mat{\alpha}_2 + \cdots + \lambda_n \mat{\alpha}_n = \mat{\theta},
+\]
+由于系数不全为 $0$, 存在 $t$, $\lambda_t \not= 0$. 则
+\[
+\ma = \mat{\alpha}_1(\mat{\beta}_1 - \frac{\lambda_1}{\lambda_t} \mat{\beta}_t)^{\top} + \cdots + \mat{\alpha}_r(\mat{\beta}_r - \frac{\lambda_r}{\lambda_t}\mat{\beta}_t),
+\]
+说明 $\ma$ 可以表示为 $r - 1$ 个秩至多为 $1$ 的矩阵的和, 因此 $r(\ma) \leqslant r - 1$, 与条件矛盾. 所以两组向量一定线性无关.
+\end{solution}
+
+\subsection*{ 习题 6.8 题目 1 }
+\begin{solution}
+第一和第三个构成子空间, 第二个不是. 有反例 $(1, 0) + (0, 1)$ 不在子空间中. 不过如果底空间是 $1$ 维的, 那么第二个条件给出的是零空间, 也是子空间.
+\end{solution}
+
+\section{第二部分}
+
+\subsection*{ 题目 2}
+\begin{solution}
+    方案是证明两个空间互相包含. 如果能用 $\mat{\alpha}$ 组表示 $\mat{\beta}$ 组, 那么说明 $L_2 \subset L_1$; 反过来如果能用 $\mat{\beta}$ 组表示 $\mat{\alpha}$ 组, 那么 $L_1 \subset L_2$. 观察得到
+    \[
+        \mat{\beta}_1 = -\mat{\alpha}_1 + 3 \mat{\alpha}_2, \qquad \mat{\beta}_2 = \mat{\alpha}_1 - \mat{\alpha}_2;
+    \]
+    \[
+        \mat{\alpha}_1 = \frac{1}{2}(\mat{\beta}_1 + 3\mat{\beta}_2), \qquad \mat{\alpha}_2 = \frac{1}{2}(\mat{\beta}_1 + \mat{\beta}_2).
+    \]
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+维数是 $2$, 可以取前两个向量作为一组基.
+\end{solution}
+
+\subsection*{ 习题 6.9 }
+\begin{solution}
+基础解系是
+\[
+    \left(\begin{matrix}
+        -19 \\
+        7 \\
+        1
+        \end{matrix}\right),
+\]
+全部解为
+\[
+    t\left(\begin{matrix}
+        -19 \\
+        7 \\
+        1
+        \end{matrix}\right), \qquad t \in \mathbb{F}.
+\]
+\end{solution}
+
+\subsection*{ 题目 2 }
+\begin{solution}
+由行列式的性质容易验证这是一组解. 而这个方程组的系数矩阵的秩是 $n - 1$, 这是因为 $|D|\not= 0$, 所以其有非零的 $n - 1$ 阶子式. 那么解空间是 $1$ 维的. 所以这个向量是方程组的一个基础解系(注意必须说明解空间的维数, 不能只因为该向量是方程组的解就说它是基础解系).
+\end{solution}
+
+\subsection*{ 题目 6 }
+\begin{solution}
+可以取
+\[
+\begin{cases}
+    x_1 - 2x_2 + x_3 = 0, \\
+    x_2 - 2x_3 + x_4 = 0,
+\end{cases}
+\]
+这个题目可以这样思考: 我们知道齐次线性方程组的解和系数矩阵的行向量垂直, 所以这里就是要找两个线性无关, 且与题目中两个向量垂直的向量. 那么可以变为解线性方程组
+\[
+\begin{cases}
+    \mat{\xi_1}^{\top}\mlx = 0, \\
+    \mat{\xi_2}^{\top}\mlx = 0,
+\end{cases}
+\]
+用这个方程组的基础解系(必然是两个向量)来构造题目中需要的方程组.
+\end{solution}
+
+\subsection*{ 习题 7.1 1(1) 2(2)}
+\begin{solution}
+\begin{enumerate}
+    \item 不是内积, 因为不满足正定性: $(\mle_1, \mle_1) = 0$;
+    \item 不是内积, 因为不满足正定性: $(\mat{\alpha}, \mat{\alpha}) = 0$ 只能说明 $\mat{\alpha}$ 的所有元素之和为零, 不能说明所有元素都是零. 但是在空间是 $1$ 维时可以成为内积.
+\end{enumerate}
+\end{solution}
