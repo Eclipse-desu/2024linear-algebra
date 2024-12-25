@@ -1,0 +1,341 @@
+\title{第十四周作业}
+\author{洪艺中}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 8.3 题目 1 }
+\begin{solution}
+\[
+\tr (\mm^{-1} \ma \mm) = \tr (\ma \mm \mm^{-1}) = \tr (\ma).
+\]
+\end{solution}
+
+\subsection*{ 习题 8.4 题目 1 }
+\begin{solution}
+四个矩阵都可以相似对角化. 此处只给出用来相似对角化的矩阵 $\mm$, 以及相似的对角矩阵 $\mat{\Lambda}$
+\begin{enumerate}
+    \item[(1)] \[
+    \mm = \left(\begin{matrix}
+        \frac{-\sqrt{17}+1}{2} & \frac{\sqrt{17}+1}{2} \\
+        1 & 1
+        \end{matrix}\right), \quad \mat{\Lambda} = \left(\begin{matrix}
+            \frac{-\sqrt{17}+5}{2} & 0 \\
+            0 & \frac{\sqrt{17}+5}{2}
+            \end{matrix}\right);
+    \]
+    \item[(3)] \[
+    \mm = \left(\begin{matrix}
+        -1 & -1 & \frac{1}{2} \\
+        -1 & 1 & \frac{1}{2} \\
+        1 & 0 & 1
+        \end{matrix}\right), \quad \mat{\Lambda} = \left(\begin{matrix}
+            0 & 0 & 0 \\
+            0 & -1 & 0 \\
+            0 & 0 & 9
+            \end{matrix}\right);
+    \]
+    \item[(5)] \[
+    \mm = \left(\begin{matrix}
+        0 & 0 & 1 & -1 \\
+        1 & -1 & 0 & 0 \\
+        1 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 1
+        \end{matrix}\right), \quad \mat{\Lambda} = \left(\begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & -1
+            \end{matrix}\right);
+    \]
+    \item[(7)] \[
+    \mm = \left(\begin{matrix}
+        -2 & \frac{-1}{2} & 2 \\
+        1 & -1 & 0 \\
+        0 & 1 & 1
+        \end{matrix}\right), \quad \mat{\Lambda} = \left(\begin{matrix}
+            2 & 0 & 0 \\
+            0 & -7 & 0 \\
+            0 & 0 & 2
+            \end{matrix}\right).
+    \]
+\end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{ 题目 2 }
+\begin{solution}
+取 $\ma$ 一组正交的特征向量 $\mat{\xi}_1$, $\cdots$, $\mat{\xi}_n$, 分别对应特征值 $\lambda_1, \cdots, \lambda_n$(可能重复). 因为这组向量两两正交, 所以这组向量线性无关. (证明: 如果线性组合 $\sum_{i = 1}^n c_i \mat{\xi}_i = \mat{\theta}$, 对等式两边内积上 $\mat{\xi}_j$ 可得 $c_j = 0$) 将这组向量单位化, 并合成一个矩阵
+\[
+\mat{P} = \begin{pmatrix}
+    \dfrac{\mat{\xi}_1}{|\mat{\xi}_1|} & \dfrac{\mat{\xi}_2}{|\mat{\xi}_2|} & \cdots & \dfrac{\mat{\xi}_n}{|\mat{\xi}_n|}
+\end{pmatrix},
+\]
+那么 $\mat{P}$ 是正交矩阵, $\mat{P}^{-1} = \mat{P}^{\top}$, 同时由于每一列都是 $\ma$ 的特征向量,
+\[
+    \ma \mat{P} = \begin{pmatrix}
+        \ma \dfrac{\mat{\xi}_1}{|\mat{\xi}_1|} & \cdots & \ma \dfrac{\mat{\xi}_n}{|\mat{\xi}_n|}
+    \end{pmatrix}
+    = \begin{pmatrix}
+        \lambda_1 \dfrac{\mat{\xi}_1}{|\mat{\xi}_1|} & \cdots & \lambda_n \dfrac{\mat{\xi}_n}{|\mat{\xi}_n|}
+    \end{pmatrix}
+    = \mat{P} \mathrm{diag}(\lambda_1, \cdots, \lambda_n),
+\]
+所以 $\ma = \mat{P} \mathrm{diag}(\lambda_1, \cdots, \lambda_n) \mat{P}^{\top}$, 因此 $\ma$ 是对称矩阵.
+\end{solution}
+
+\subsection*{ 题目 3 }
+\begin{solution}
+    \[
+    \ma = \left(\begin{matrix}
+        1 & -1 & 0 \\
+        -1 & 1 & -1 \\
+        1 & 0 & 1
+        \end{matrix}\right)
+        \left(\begin{matrix}
+            1 & 0 & 0 \\
+            0 & -1 & 0 \\
+            0 & 0 & 3
+        \end{matrix}\right)
+        \left(\begin{matrix}
+            1 & 1 & 1 \\
+            0 & 1 & 1 \\
+            -1 & -1 & 0
+        \end{matrix}\right)
+    \]
+\begin{enumerate}
+    \item \[
+    \ma^k = \begin{pmatrix}
+        1 & 1 - (-1)^k & 1 - (-1)^k \\
+        -1 + 3^k & -1 + (-1)^k + 3^k & -1 + (-1)^k \\
+        1 - 3^k & 1 - 3^k & 1
+    \end{pmatrix};
+    \] 
+    \item 记 $g(x) = x^3 + 3x^2 - 24x + 28$, 那么 $g(\ma)$ 的特征值为 $g(1) = 8$, $g(-1) = 54$, $g(3) = 10$;
+    \item $|g(\ma)| = 8 \times 54 \times 10 = 4320$;
+    \item \[
+    g(\ma) = \begin{pmatrix}
+        8 & -46 & -46 \\
+        2 & 56 & 46 \\
+        -2 & -2 & 8
+    \end{pmatrix}.
+    \]
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 5 }
+\begin{solution}
+$|\ma| = -6$, 可以给原式乘上一个 $|A|$ 方便计算. 
+\[
+    |\ma^\ast + 3\ma + 2\me| = 25.
+\]
+\end{solution}
+
+\subsection*{ 题目 7 }
+\begin{solution}
+首先 $|\ma| \not= 0$, 所以 $\ma$ 的特征值一定非零. 因此 $\ma^\ast$ 的特征值也非零. 
+\[
+|\ma| \mat{\xi} = \ma \ma^\ast \mat{\xi} = \lambda_0 \ma \mat{\xi},
+\]
+因此 $\mat{\xi}$ 是 $\ma$ 关于特征值 $|\ma| / \lambda_0$ 的一个特征向量, 利用这一点来列方程, 可得 $a = c = 2, b = -3, \lambda_0 = 1$.
+\end{solution}
+
+\subsection*{ 题目 9 }
+\begin{solution}
+根据 Hamilton-Caylay 定理, 设 $g(x) = x^n + c_{n - 1} x^{n - 1} + \cdots + c_1 x + c_0$ 是 $\ma$ 的特征多项式, 那么 $g(A) = \mat{0}$, 并且因为 $\ma$ 可逆, $c_0 = g(0) = |\ma| \not= 0$. 
+
+我们的目标是找到一个矩阵 $\mb = f(\ma)$ 使得 $\ma f (\ma) = \me$, 
+\[
+\mat{0} = g(\ma) = \ma^n + c_{n - 1}\ma^{n - 1} + \cdots + c_1 \ma + c_0 \me,
+\]
+因为 $c_0 \not= 0$, 所以可以把常数项移到等式左边来创造一个 $\me$, 即
+\[
+\begin{aligned}
+    \me ={}& -\frac{1}{c_0}(\ma^n + c_{n - 1}\ma^{n - 1} + \cdots + c_1 \ma) \\
+    ={}& \ma \cdot -\frac{1}{c_0}(\ma^{n - 1} + c_{n - 1}\ma^{n - 2} + \cdots + c_1 \me),
+\end{aligned}
+\]
+所以取 $f(x) = -\frac{1}{c_0}(x^{n - 1} + c_{n - 1} x^{n - 2} + \cdots + c_1)$, 即 $f(x) = -\frac{1}{c_0x} (g(x) - c_0)$ 即可.
+\end{solution}
+
+\subsection*{ 题目 13 }
+\begin{solution}
+\[
+\ma^k = \begin{pmatrix}
+    1 & 2 \times 5 ^ {k - 1} - 2 \times (-1)^k 5^{k - 1} & -1 + 4 \times 5^{k - 1} + (-1)^k 5 ^{k - 1} \\
+    0 & 5^{k - 1} + 4 \times (-1)^k 5^{k - 1} & 2 \times 5^{k - 1} - 2 \times (-1)^k 5^{k - 1} \\
+    0 & 2 \times 5^{k - 1} - 2 \times (-1)^k 5^{k - 1} & 4 \times 5^{k - 1} + (-1)^k 5^{k - 1}
+\end{pmatrix}.
+\]
+\end{solution}
+
+\newpage
+\section{第二部分}
+
+\subsection*{ 习题 8.4 题目 10 }
+\begin{solution}
+证明, 因为 $\ma$ 可对角化, 所以存在由特征向量组成的可逆矩阵 $\mq$, $\ma = \mq^{-1} \mat{\Lambda} \mq$, 这里 $\mat{\Lambda} = \mathrm{diag}(\lambda_1, \lambda_2, \cdots, \lambda_n)$, 那么
+\[
+f(\ma) = \mq^{-1} f(\mat{\Lambda}) \mq,
+\]
+由对角矩阵的乘法性质, $f(\mat{\Lambda}) = \mathrm{f(\lambda_1), f(\lambda_2), \cdots, f(\lambda_n)}$ 也是对角矩阵. 所以 $f(\ma)$ 可对角化, 并且其所有特征值为 $f(\lambda_1), f(\lambda_2), \cdots, f(\lambda_n)$.
+\end{solution}
+
+\subsection*{ 题目 12 }
+\begin{solution}
+\begin{enumerate}
+    \item 设多项式 $g(x) = c_{n^2} x^{n^2} + c_{n^2 - 1}x^{n^2 - 1} + \cdots + c_1 x + c_0$. 如果 $g(\ma) = \mat{0}$, 那么 $g(\ma)$ 这个矩阵的每个元素都为 $0$, 因此每个位置都给出了一个关于 $c_0, c_1, \cdots, c_{n^2}$ 的线性方程. 因为矩阵一共有 $n^2$ 个元素, 所以一共有 $n^2$ 个方程, 而待定的系数有 $n^2 + 1$ 个, 所以方程组有非零解, 因此存在题目要求的多项式.
+    \item 1. 如果 $\ma$ 可逆, 那么根据 (1), 存在非零的多项式 $f(x)$ 使 $f(\ma) = \mat{0}$. 设其中次数最小的非零系数是 $c_i$, 即 $j < i$ 时, $c_j = 0$. 那么多项式可以表示为
+    \[
+    f(x) = x^i ( c_i + c_{i + 1} x + \cdots + c_{n^2} x^{n^2 - i}),
+    \]
+    记 $g(x) = f(x) / x^i$, 则
+    \[
+    \mat{0} = f(\ma) = \ma^i g(\ma),
+    \]
+    因为 $\ma$ 可逆, 所以 $g(\ma) = \mat{0}$. 而 $g$ 的常数项不为 $0$, 因此前者可以推出后者;
+
+    2. 如果存在常数项不为 $0$ 的多项式 $g(x) = a_k x^k + \cdots + a_1 x + a_0$, $g(\ma) = \mat{0}$, 那么类似第 9 题构造 $\ma$ 的逆矩阵:
+    \[
+        \mat{0} = (a_k \ma^{k - 1} + \cdots + a_1) \ma + a_0 \me,
+    \]
+    所以
+    \[
+        \me = \ma \cdot -\frac{1}{a_0}(a_k \ma^{k - 1} + \cdots + a_1),
+    \]
+    因为存在和 $\ma$ 相乘是单位阵的矩阵, 所以 $\ma$ 可逆.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 习题 8.5 题目 2 }
+\begin{solution}
+$x = 4, y = 5$. $\mat{U}$ 可以取
+\[
+\begin{pmatrix}
+    -\frac{\sqrt{2}}{2} & \frac{2}{3} & -\frac{1}{6}\sqrt{2} \\
+    0 & \frac{1}{3} & \frac{2}{3}\sqrt{2} \\
+    \frac{\sqrt{2}}{2} & \frac{2}{3} & -\frac{1}{6}\sqrt{2}
+\end{pmatrix}
+\]
+对于特征值 $5$ 的子空间, 取其他正交基也可以.
+\end{solution}
+
+\newpage
+\subsection*{ 拓展题 2 }
+\begin{problem*}
+设 $\ma, \mb$ 是数域 $\mathbb{F}$ 上的两个 $n$ 阶方阵, 且 $\ma$ 在 $\mathbb{F}$ 中的 $n$ 个特征值互异, 试证 $\ma$ 的特征向量恒为 $\mb$ 的特征向量的充要条件是 $\ma \mb = \mb \ma$.
+\end{problem*}
+\begin{solution}
+先证明前推后. 因为 $\ma$ 的特征值互异, 所以其有一组特征向量组成空间的基, 因此可以相似对角化. 设 $\mq$ 是使 $\ma$ 对角化的矩阵, $\ma = \mq^{-1} \mat{\Lambda}_1 \mq$. 因为 $\mq$ 列向量就是 $\ma$ 的一组特征向量, 由条件, 其也是 $\mb$ 的特征向量. 所以存在 $\mu_1, \cdots, \mu_n$, 使得对角阵 $\mat{\Lambda}_2$ 满足
+\[
+\mb \mq = \mq \mat{\Lambda}_2,
+\]
+因此 $\ma = \mq^{-1} \mat{\Lambda}_1 \mq$, $\mb = \mq^{-1} \mat{\Lambda}_2 \mq$. 故
+\[
+\ma \mb = \mq^{-1} \mat{\Lambda}_1 \mq \mq^{-1} \mat{\Lambda}_2 \mq = \mq^{-1} \mat{\Lambda}_1 \mat{\Lambda}_2 \mq = \mq^{-1} \mat{\Lambda}_2 \mat{\Lambda}_1 \mq = \mb\ma.
+\]
+
+再证明后推前. 如果两个矩阵可交换, 设 $\mat{\xi}$ 是 $\ma$ 关于特征值 $\lambda$ 的特征向量, 那么
+\[
+\lambda(\mb \mat{\xi}) = \mb \ma \mat{\xi} = \ma (\mb \mat{\xi}),
+\]
+所以 $\mb \mat{\xi}$ 也是 $\ma$ 关于特征值 $\lambda$ 的特征向量. 因为 $\ma$ 有 $n$ 个不同的特征值, 所以每个特征子空间的维数是 $1$. 因此 $\mb \mat{\xi}$ 和 $\mat{\xi}$ 共线, 即存在 $\mu$ 使得 $\mb \mat{\xi} = \mu \mat{\xi}$. 所以 $\mat{\xi}$ 也是 $\mb$ 的特征向量.
+\end{solution}
+
+\subsection*{ 拓展题 7 }
+\begin{problem*}
+设 $n$ 阶方阵 $\ma$ 有 $n$ 个互异的特征值, $\mb$ 与 $\ma$ 有完全相同的特征值, 证明存在 $n$ 阶非奇异矩阵 $\mq$ 与另一矩阵 $\mr$, 使 $\ma = \mq \mr$, $\mb = \mr \mq$.
+\end{problem*}
+\begin{solution}
+由于二者有完全相同的特征值, 所以可以对角化为相同的对角阵 $\mat{\Lambda}$: 取可逆阵 $\ms, \mt$, 使
+\[
+\ma = \ms \mat{\Lambda} \ms^{-1}, \quad \mb = \mt \mat{\Lambda} \mt^{-1},
+\]
+那么取 $\mq = \ms \mt^{-1}$, $\mr = \mt \mat{\Lambda} \ms^{-1}$, 则 $\mq$ 可逆, 并且
+\[
+\mq \mr = \ms \mt^{-1} \mt \mat{\Lambda} \ms^{-1} = \ma, \quad \mr \mq = \mt \mat{\Lambda} \ms^{-1}\ms \mt^{-1} = \mb.
+\]
+\end{solution}
+
+\newpage
+\newcommand{\mpp}{\mat{P}}
+\subsection*{ 拓展题 11 }
+\begin{problem*}
+设 $\ma, \mb$ 均可对角化. 证明: $\ma$, $\mb$ 乘法可交换当且仅当存在可逆矩阵 $\mpp$ 使得 $\mpp \ma \mpp^{-1}$ 和 $\mpp \mb \mpp^{-1}$ 均为对角阵.
+\end{problem*}
+\begin{solution}
+    前推后的证明与拓展题 2 类似.
+    
+    接下来证明后推前. 假设 $\ma$ 的特征值为 $\lambda_1, \cdots, \lambda_k$, 重数分别为 $t_1, \cdots, t_k$. 与拓展题 2 类似, 我们可以用可交换性证明, 对 $\ma$ 的任意一个特征子空间 $V_{\lambda}$, $\mb(V_{\lambda}) \subset V_{\lambda}$. 所以在 $\ma$ 的特征向量构成的基下, $\mb$ 对应(相似于)一个分块对角矩阵: 具体来说, 就是取 $\ma$ 特征向量构成的可逆矩阵 $\mq$, 并且相同特征值的向量相邻, 即前 $t_1$ 列是特征值 $\lambda_1$ 的特征子空间的基, 接下来的 $t_2$ 列是特征值 $\lambda_2$ 的特征子空间的基, 以此类推. 那么
+    \[
+    \ma = \mq \begin{pmatrix}
+        \lambda_1 \me_{t_1} & & & \\
+        & \lambda_2 \me_{t_2} & & \\
+        & & \ddots & \\
+        & & & \lambda_k \me_{t_k}
+    \end{pmatrix} \mq^{-1},
+    \quad 
+    \mb \mq = \mq \begin{pmatrix}
+        \mb_1 & & & \\
+        & \mb_2 & & \\
+        & & \ddots & \\
+        & & & \mb_k
+    \end{pmatrix},
+    \]
+    其中 $\mb_i$ 是 $t_i \times t_i$ 的矩阵. 根据群里发的文档, 可以证明 $\mb_i$ 都是可对角化的, 所以可以取 $\ms_i$ 使 $\ms_i \mb_i \ms_i^{-1} = \mat{\Lambda}_i$ 是对角阵, 那么取
+    \[
+    \ms = \begin{pmatrix}
+        \ms_1 & & & \\
+        & \ms_2 & & \\
+        & & \ddots & \\
+        & & & \ms_k
+    \end{pmatrix},
+    \]
+    则计算得
+    \[
+    \ms \mq^{-1} \ma \mq \ms^{-1} = \begin{pmatrix}
+        \lambda_1 \me_{t_1} & & & \\
+        & \lambda_2 \me_{t_2} & & \\
+        & & \ddots & \\
+        & & & \lambda_k \me_{t_k}
+    \end{pmatrix}, \quad 
+    \ms \mq^{-1} \mb \mq \ms^{-1} = \begin{pmatrix}
+        \mat{\Lambda}_1 & & & \\
+        & \mat{\Lambda}_2 & & \\
+        & & \ddots & \\
+        & & & \mat{\Lambda}_k
+    \end{pmatrix}.
+    \]
+    因此取 $\mpp = \ms \mq^{-1}$ 即可同时对角化.
+\end{solution}
+
+\newpage
+\subsection*{ 拓展题 16 }
+\begin{problem*}
+设矩阵 $\ma = (a_{ij})_{n \times n}$ 满足对任意 $i$
+\[
+\sum_{j = 1}^{n} a_{ij} = b,
+\]
+证明
+\begin{enumerate}
+    \item $b$ 是 $\ma$ 的一个特征值;
+    \item 如果 $a_{ij} \geqslant 0$, 那么 $\ma$ 的任一个实特征值都满足 $|\lambda| \leqslant b$.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+第一问, 取 $(1, 1, \cdots, 1)^\top$ 即可证明.
+
+第二问, 设 $\ma \mat{\xi} = \lambda \mat{\xi}$, 并取 $\xi$ 中绝对值最大的元素 $x_k$, 满足对任何 $i$, $|x_k| \geqslant |x_i|$. 那么考虑 $\ma$ 的第 $k$ 行,
+\[
+a_{k1} x_1 + \cdots + a_{kk} x_k + \cdots + a_{kn} x_n = \lambda x_k,
+\]
+取绝对值, 并对左边从上面估计, 得到
+\[
+|\lambda| |x_k| = |a_{k1} x_1 + \cdots + a_{kk} x_k + \cdots + a_{kn} x_n| \leqslant \sum_{i = 1}^{n} a_{ki} |x_i| \leqslant \sum_{i = 1}^{n} a_{ki} |x_k| = b |x_k|,
+\]
+两边除以 $|x_k|$ 得到
+\[
+|\lambda | \leqslant b,
+\]
+得证.
+\end{solution}

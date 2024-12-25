@@ -1,0 +1,267 @@
+\title{第四～五周作业}
+\author{洪艺中}
+\maketitle
+\section{第一次作业}
+\subsection*{51页 题目8}
+\begin{problem}
+设 $s_k = x_1^k + x_2^k + \cdots + x_n^k$, $k = 0, 1, 2, \cdots$, 计算 $n + 1$ 阶行列式的值.
+\[
+\left|
+\begin{matrix}
+    s_0 & s_1 & \cdots & s_{n - 1} & 1 \\
+    s_1 & s_2 & \cdots & s_{n}     & x \\
+    \vdots & \vdots &  & \vdots & \vdots \\
+    s_{n - 1} & s_n & \cdots & s_{2n - 2} & x^{n - 1} \\
+    s_{n} & s_{n + 1} & \cdots & s_{2n - 1} & x^{n}
+\end{matrix}
+\right|.
+\]
+\end{problem}
+\begin{solution}\par
+\textbf{注意到}\footnote{当然, 如果注意不到, 也可以通过分拆的方式算出同样的结果.}
+\[
+\begin{pmatrix}
+    1 & 1 & \cdots & 1 & 1 \\
+    x_1 & x_2 & \cdots & x_n & x \\
+    \vdots & \vdots &  & \vdots & \vdots \\
+    x_1^{n - 1} & x_2^{n - 1} & \cdots & x_n^{n - 1} & x^{n - 1} \\
+    x_1^{n} & x_2^{n} & \cdots & x_n^n & x^n
+\end{pmatrix}
+\begin{pmatrix}
+    1 & x_1 & \cdots & x_1^{n - 1} & 0 \\
+    1 & x_2 & \cdots & x_2^{n - 1} & 0 \\
+    \vdots & \vdots &  & \vdots & \vdots \\
+    1 & x_n & \cdots & x_n^{n - 1} & 0 \\
+    0 & 0 & \cdots & 0 & 1
+\end{pmatrix}_{(n + 1) \times (n + 1)}
+=
+\begin{pmatrix}
+    s_0 & s_1 & \cdots & s_{n - 1} & 1 \\
+    s_1 & s_2 & \cdots & s_{n}     & x \\
+    \vdots & \vdots &  & \vdots & \vdots \\
+    s_{n - 1} & s_n & \cdots & s_{2n - 2} & x^{n - 1} \\
+    s_{n} & s_{n + 1} & \cdots & s_{2n - 1} & x^{n}
+\end{pmatrix},
+\]
+因此要求的行列式的值即为左边两个矩阵之行列式的乘积. 所以题目中的行列式等于
+\[
+\prod_{i = 1}^{n}(x - x_i) \prod_{j > i} (x_j - x_i)^2.
+\]
+
+\newpage
+\subsection*{58页 题目 1 单号}
+(1)
+\[
+\left(\begin{matrix}
+    0 & \frac{1}{3} & \frac{1}{3} \\
+    0 & \frac{1}{3} & \frac{-2}{3} \\
+    -1 & \frac{2}{3} & \frac{-1}{3}
+\end{matrix}\right);
+\]
+
+(2)
+\[
+\left(\begin{matrix}
+    \frac{1}{2} & \frac{-1}{4} & \frac{1}{8} & \frac{-1}{16} & \frac{1}{32} \\
+    0 & \frac{1}{2} & \frac{-1}{4} & \frac{1}{8} & \frac{-1}{16} \\
+    0 & 0 & \frac{1}{2} & \frac{-1}{4} & \frac{1}{8} \\
+    0 & 0 & 0 & \frac{1}{2} & \frac{-1}{4} \\
+    0 & 0 & 0 & 0 & \frac{1}{2}
+\end{matrix}\right);
+\]
+
+(3)
+\[
+\left(\begin{matrix}
+    1 & -1 & 0 & 0 \\
+    -1 & 2 & 0 & 0 \\
+    19 & -30 & 3 & -5 \\
+    -7 & 11 & -1 & 2
+\end{matrix}\right).
+\]
+\end{solution}
+
+\subsection*{题目 2}
+\begin{problem}
+设 $\mat{A}$ 是一个 $n$ 阶反对称矩阵. 证明:
+\begin{enumerate}
+    \item 如果 $n$ 是奇数, 则 $\mat{A}^{\ast}$ 是一个对称矩阵; 如果 $n$ 是偶数, 则 $\mat{A}^{\ast}$ 是一个反对称矩阵.
+    \item 如果 $\mat{A}$ 可逆, 则 $\mat{A}^{-1}$ 也是一个反对称矩阵.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item 设 $\mat{B}_{ij}$ 表示 $\mat{A}$ 去掉第 $i$ 行和第 $j$ 列得到的子方阵, 即 $(-1)^{i + j}\det(B_{ij})$ 为 $\mat{A}$ 在 $(i, j)$ 处的代数余子式, $(\mat{A}^{\ast})_{ij} = (-1)^{i + j}\det(\mat{B}_{ji})$. 因为 $\mat{A}$ 是反对称的, 所以 $\mat{B}_{ij}^{\mathrm{T}} = -\mat{B}_{ji}$. 因此 $\det(\mat{B}_{ij}) = (-1)^{n - 1}\det(\mat{B}_{ji})$. 
+    
+    因此如果 $n$ 是奇数, 那么 $\det(\mat{B}_{ij}) = \det(\mat{B}_{ji})$, 即 $(\mat{A}^{\ast})_{ij} = (\mat{A}^{\ast})_{ji}$, 所以 $\mat{A}^{\ast}$ 是对称矩阵; 如果 $n$ 是偶数, 那么 $\det(\mat{B}_{ij}) = -\det(\mat{B}_{ji})$, 所以 $\mat{A}^{\ast}$ 是反对称矩阵.
+    \item 如果 $\mat{A}$ 可逆, 那么 $\mat{A}^{-1} = |\mat{A}|^{-1} \mat{A}^{\ast} $. 如果 $n$ 为偶数, 由 (1) 的结论, $\mat{A}^{-1}$ 可逆; 而如果 $n$ 为奇数, 那么由 $\det(\mat{A}) = \det(-\mat{A}^{\mathrm{T}}) = (-1)^{n}\det(\mat{A}) = -\det(\mat{A})$ 可知, \textbf{奇数规模的反对称矩阵, 行列式为 $0$}. 因此这种情况下 $\mat{A}$ 不可能可逆. 命题得证.
+\end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{题目 3}
+\begin{problem}
+设 $\mat{A}$ 为方阵. 若存在正整数 $k \geqslant 2$ 使得 $\mat{A}^k = \mat{O}$ 成立, 证明 $\mat{E} - \mat{A}$ 可逆, 且 $(\mat{E} - \mat{A})^{-1} = \mat{E} + \mat{A} + \mat{A}^2 + \cdots + \mat{A}^{k - 1}$.
+\end{problem}
+\begin{solution}
+\[
+\begin{aligned}
+     {} & (\mat{E} - \mat{A})(\mat{E} + \mat{A} + \mat{A}^2 + \cdots + \mat{A}^{k - 1}) \\
+    ={} & \mat{E} + \mat{A} + \mat{A}^2 + \cdots + \mat{A}^{k - 1} \\
+    -{} & \left(\mat{A} + \mat{A}^2 + \cdots + \mat{A}^{k}\right) \\
+    ={} & \mat{E} - \mat{A}^k \\
+    ={} & \mat{E},
+\end{aligned}
+\]
+所以根据定理 3.1.3, $\mat{E} - \mat{A}$ 可逆, 且 $(\mat{E} - \mat{A})^{-1} = \mat{E} + \mat{A} + \mat{A}^2 + \cdots + \mat{A}^{k - 1}$.
+\end{solution}
+
+\subsection*{题目 4}
+\begin{problem}
+设 $\mat{J}_n$ 为所有元素全为 $1$ 的 $n(n > 1)$ 阶方阵. 证明 $\mat{E} - \mat{J}_n$ 可逆, 且其逆为 $\mat{E} - \dfrac{1}{n - 1}\mat{J}_n$.
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item 方案一: 因为 $\mat{J}_n^2 = n\mat{J}_n$, 所以
+    \[
+    \begin{aligned}
+        (\mat{E} - \mat{J}_n)(\mat{E} - \dfrac{1}{n - 1}\mat{J}_n) 
+        ={} & \mat{E} - \dfrac{1}{n - 1}\mat{J}_n - \mat{J}_n + \dfrac{1}{n - 1}\mat{J}_n^2 \\
+        ={} & \mat{E} - \dfrac{1}{n - 1}\mat{J}_n - \mat{J}_n + \dfrac{n}{n - 1}\mat{J}_n \\
+        ={} & \mat{E},
+    \end{aligned}
+    \]
+    用题目 3 中一样的理由, 我们可以说明命题成立.
+    \item 方案二, 用之前介绍的 Sherman-Morrison 公式. 取 $\mat{u} = \mat{v} = (1, 1, \cdots, 1)^{\mathrm{T}}$, 那么 $\mat{J}_n = \mat{u}\mat{v}^{\mathrm{T}}$, $\mat{u}^{\mathrm{T}}\mat{v} = n$. 所以
+    \[
+        (\mat{E} - \mat{J}_n)^{-1} = \mat{E} - \frac{1}{1 - \mat{u}^{\mathrm{T}}\mat{v}}\mat{u}\mat{v}^{\mathrm{T}} = \mat{E} + \frac{1}{n - 1}\mat{J}_n.
+    \]
+\end{enumerate}
+\end{solution}
+
+\newpage
+\section{第二部分}
+\subsection*{64页 题目1}
+(1)
+\[
+\begin{pmatrix}
+    \mat{E}_2 & \mat{O}_{2 \times 1} \\
+    \mat{O}_{1 \times 2} & 0
+\end{pmatrix};
+\]
+
+(2)
+\[
+\begin{pmatrix}
+    \mat{E}_3 & \mat{O}_{3 \times 2}
+\end{pmatrix}.
+\]
+
+\subsection*{题目2 (1)}
+\begin{problem}
+把矩阵 $\begin{pmatrix}a & 0 \\ 0 & a^{-1} \end{pmatrix}$ 表示为 $\begin{pmatrix}1 & x \\  & 1 \end{pmatrix}$ 及 $\begin{pmatrix}1 &  \\ y & 1 \end{pmatrix}$ 类型矩阵的乘积.
+\end{problem}
+\begin{solution}
+设
+\[
+\mat{A} = \begin{pmatrix}a & 0 \\ 0 & a^{-1} \end{pmatrix},
+\]
+题目要求我们用行、列相加的初等矩阵来表示 $\mat{A}$, 所以我们可以考虑怎么从单位阵开始通过行、列相加的初等变换变成 $\mat{A}$. 从
+\[
+\begin{pmatrix} 1 & \\  & 1 \end{pmatrix}
+\]
+出发, 选择 $t, s \in \real$. 第 1 行加上 $t \times$ 第 2 行, 得到
+\[
+    \begin{pmatrix} 1 & t \\  & 1 \end{pmatrix} \begin{pmatrix} 1 & \\  & 1 \end{pmatrix} = \begin{pmatrix}1 & t \\ 0 & 1 \end{pmatrix}.
+\]
+第 1 列加上 $s \times$ 第 2 列, 得到
+\[
+     \begin{pmatrix} 1 & t \\  & 1 \end{pmatrix} \begin{pmatrix} 1 &  \\ s & 1 \end{pmatrix} = \begin{pmatrix}1 + ts & t \\ s & 1 \end{pmatrix}.
+\]
+取 $ts = a - 1$ 且 $t \not= 0$. 那么上面说明
+\[
+     \begin{pmatrix} 1 & t \\  & 1 \end{pmatrix} \begin{pmatrix} 1 &  \\ \frac{a - 1}{t} & 1 \end{pmatrix} = \begin{pmatrix} a & t \\ \frac{a - 1}{t} & 1 \end{pmatrix}.
+\]
+再用 1, 1 处的 $a$ 消去 1, 2 和 2, 1 处的元素, 得
+\[
+    \begin{pmatrix} 1 &  \\ \frac{1 - a}{at} & 1 \end{pmatrix} \begin{pmatrix} a & t \\ \frac{a - 1}{t} & 1 \end{pmatrix} \begin{pmatrix} 1 & -\frac{t}{a} \\  & 1 \end{pmatrix} = \mat{A}
+\]
+所以
+\[
+    \begin{pmatrix} 1 &  \\ \frac{1 - a}{at} & 1 \end{pmatrix} \begin{pmatrix} 1 & t \\  & 1 \end{pmatrix} \begin{pmatrix} 1 &  \\ \frac{a - 1}{t} & 1 \end{pmatrix} \begin{pmatrix} 1 & -\frac{t}{a} \\  & 1 \end{pmatrix} = \mat{A}
+\]
+\end{solution}
+
+\subsection*{72页 题目1}
+\[
+\left(\begin{matrix}
+    3 & -6 & 21 & 30 & 36 \\
+    -3 & 9 & 18 & 38 & 46 \\
+    -9 & 6 & -15 & -22 & -28 \\
+    0 & 0 & 0 & 13 & 6 \\
+    0 & 0 & 0 & 25 & 5
+\end{matrix}\right)
+\]
+
+\subsection*{题目 3(1)}
+\begin{problem}
+证明
+\[
+\left|
+\begin{matrix}
+    \mat{E}_m & \mat{B} \\ \mat{A} & \mat{E}_n
+\end{matrix}
+\right|
+= |\mat{E}_n - \mat{AB}| = |\mat{E}_m - \mat{BA}|.
+\]
+\end{problem}
+\begin{solution}
+利用之前介绍的\textit{分块矩阵的初等变换}, 可知
+\[
+\left|
+    \begin{matrix}
+        \mat{E}_m & \mat{B} \\ \mat{A} & \mat{E}_n
+    \end{matrix}
+\right|
+=
+\det\left(
+\begin{pmatrix}
+    \mat{E}_m &  \\ -\mat{A} & \mat{E}_n
+\end{pmatrix}
+\begin{pmatrix}
+    \mat{E}_m & \mat{B} \\ \mat{A} & \mat{E}_n
+\end{pmatrix}
+\right)
+=
+\left|
+\begin{matrix}
+    \mat{E}_m & \mat{B} \\  & \mat{E}_n - \mat{AB}
+\end{matrix}
+\right|
+= |\mat{E}_n - \mat{AB}|,
+\]
+以及
+\[
+\left|
+    \begin{matrix}
+        \mat{E}_m & \mat{B} \\ \mat{A} & \mat{E}_n
+    \end{matrix}
+\right|
+=
+\det\left(
+\begin{pmatrix}
+    \mat{E}_m & -\mat{B} \\  & \mat{E}_n
+\end{pmatrix}
+\begin{pmatrix}
+    \mat{E}_m & \mat{B} \\ \mat{A} & \mat{E}_n
+\end{pmatrix}
+\right)
+=
+\left|
+\begin{matrix}
+    \mat{E}_m - \mat{BA} & \\ \mat{A} & \mat{E}_n
+\end{matrix}
+\right|
+= |\mat{E}_m - \mat{BA}|.
+\]
+\end{solution}

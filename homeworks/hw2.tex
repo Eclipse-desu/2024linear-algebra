@@ -1,0 +1,520 @@
+\title{第二周作业}
+\author{洪艺中}
+\maketitle
+\section{第一次作业}
+\subsection*{题目5 单号}
+\begin{problem*}
+(1) 
+\[
+\begin{pmatrix}
+    \frac{n - 1}{n} & -\frac{1}{n} & \cdots & -\frac{1}{n} \\
+    -\frac{1}{n} & \frac{n - 1}{n} & \cdots & -\frac{1}{n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    -\frac{1}{n} & -\frac{1}{n} & \cdots & \frac{n - 1}{n}
+\end{pmatrix}_{n \times n}^2.
+\]
+\end{problem*}
+\begin{solution}
+    设要计算的式子为 $\mat{A}^2$, 并设
+\[
+\mat{B} = 
+\begin{pmatrix}
+    1 & 1 & \cdots & 1 \\
+    1 & 1 & \cdots & 1 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1 & 1 & \cdots & 1
+\end{pmatrix}_{n \times n},
+\]
+那么
+\[
+    \mat{A} = \mat{E}_n - \frac{1}{n}\mat{B}, \qquad \mat{B}^2 = n\mat{B},
+\]
+于是
+\[
+\begin{aligned}
+    \mat{A}^2 
+    ={}& (\mat{E}_n - \frac{1}{n}\mat{B})^2 \\
+    ={}& \mat{E}_n^2 - \frac{1}{n}\mat{E}_n\mat{B} - \frac{1}{n}\mat{B}\mat{E}_n + \frac{1}{n^2}\mat{B}^2 \\
+    ={}& \mat{E}_n - \frac{1}{n}\mat{B} \\
+    ={}& \mat{A} =
+    \begin{pmatrix}
+        \frac{n - 1}{n} & -\frac{1}{n} & \cdots & -\frac{1}{n} \\
+        -\frac{1}{n} & \frac{n - 1}{n} & \cdots & -\frac{1}{n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        -\frac{1}{n} & -\frac{1}{n} & \cdots & \frac{n - 1}{n}
+    \end{pmatrix}_{n \times n}.
+\end{aligned}
+\]
+\end{solution}
+
+\newpage
+\begin{problem*}
+(3)
+\[
+\begin{pmatrix}
+    1 & 1 \\
+    0 & 1
+\end{pmatrix}^n.
+\]
+\end{problem*}
+\begin{solution}
+设要计算的式子为 $\mat{A}^n$. 记
+\[
+    \mat{B} = 
+    \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix},
+\]
+那么
+\[
+\mat{A} = \mat{E}_2 + \mat{B}, \qquad \mat{B}^2 = \mat{0},
+\]
+所以只要 $\mat{B}$ 的次数高于 $1$, 那么这一项就是 $0$ 了, 因此可得
+\[
+\begin{aligned}
+\mat{A}^n 
+={}& (\mat{E}_2 + \mat{B})^n \\
+={}& \mat{E}_2 + n\mat{B} \\
+={}&
+    \mat{B} = 
+    \begin{pmatrix}
+        1 & n \\
+        0 & 1
+    \end{pmatrix},
+\end{aligned}
+\]
+\end{solution}
+
+\begin{problem*}
+(5)
+\[
+\begin{pmatrix}
+    \cos \varphi & -\sin \varphi \\
+    \sin \varphi & \cos \varphi
+\end{pmatrix}^n.
+\]
+\end{problem*}
+\begin{solution}
+我们用归纳法证明
+\[
+    \begin{pmatrix}
+        \cos \varphi & -\sin \varphi \\
+        \sin \varphi & \cos \varphi
+    \end{pmatrix}^n
+    =
+    \begin{pmatrix}
+        \cos n\varphi & -\sin n\varphi \\
+        \sin n\varphi & \cos n\varphi
+    \end{pmatrix}.
+\]
+
+首先, $n = 1$ 时显然成立.
+
+假设结论在 $n = k$ 时成立, 那么
+\[
+\begin{aligned}
+    \begin{pmatrix}
+        \cos \varphi & -\sin \varphi \\
+        \sin \varphi & \cos \varphi
+    \end{pmatrix}^{k + 1}
+    ={}&
+    \begin{pmatrix}
+        \cos k\varphi & -\sin k\varphi \\
+        \sin k\varphi & \cos k\varphi
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \varphi & -\sin \varphi \\
+        \sin \varphi & \cos \varphi
+    \end{pmatrix} \\
+    ={}&
+    \begin{pmatrix}
+        \cos k\varphi \cos \varphi - \sin k\varphi \sin \varphi & -\cos k\varphi \sin \varphi - \sin k\varphi \cos \varphi \\
+        \cos k\varphi \sin \varphi + \sin k\varphi \cos \varphi & \cos k\varphi \cos \varphi - \sin k\varphi \sin \varphi
+    \end{pmatrix} \\
+    ={}&
+    \begin{pmatrix}
+        \cos (k + 1)\varphi & -\sin (k + 1)\varphi \\
+        \sin (k + 1)\varphi & \cos (k + 1)\varphi
+    \end{pmatrix},
+\end{aligned}
+\]
+
+由此得证.
+\end{solution}
+
+\newpage
+\subsection*{题目6 (2)}
+\begin{problem*}
+求满足 $\mat{A}^2 = \mat{O}$ 的二阶矩阵 $\mat{A}$.
+\end{problem*}
+\begin{solution}
+设
+\[
+A = 
+\begin{pmatrix}
+    a & b \\
+    c & d
+\end{pmatrix},
+\]
+那么
+\[
+    A^2 = 
+    \begin{pmatrix}
+        a^2 + bc & ab + bd \\
+        ac + cd & bc + d^2
+    \end{pmatrix}
+     = \mat{O}.
+\]
+即有方程组
+\[
+\begin{cases}
+    a^2 + bc = 0, \\
+    b(a + d) = 0, \\
+    c(a + d) = 0, \\
+    bc + d^2 = 0.
+\end{cases}
+\]
+
+观察第 $2$, $3$ 个方程, 两个数相乘等于 $0$, 那么至少其中一项为 $0$.
+
+\begin{enumerate}
+    \item $a + d \not= 0$. 此时有 $ b = c = 0$, 那么 $a^2 = d^2 = 0$, 出现矛盾. 所以这种情况不行. 
+    \item $a + d = 0$. 那么 $a^2 + bc = 0$. 我们分 $a = 0$ 和 $a \not= 0$ 两种情况讨论,
+    \begin{enumerate}
+        \item $a = 0$. 那么 $b = 0$ 或 $c = 0$. 所以
+        \[
+        A = 
+        \begin{pmatrix}
+            0 & b \\
+            0 & 0
+        \end{pmatrix},
+        \quad \text{或}
+        A = 
+        \begin{pmatrix}
+            0 & 0 \\
+            c & 0
+        \end{pmatrix},
+        \]
+        \item $a \not= 0$. 那么 $bc = -a^2$. 所以 $b, c$ 都非零, 那么
+        \[
+        A = 
+        \begin{pmatrix}
+            a & -\frac{a^2}{c} \\
+            c & -a
+        \end{pmatrix},
+        \]
+        其中 $a, c \not= 0$.
+    \end{enumerate}
+\end{enumerate}
+
+综上 $\mat{A} = \mat{O}$ 或者 $\mat{A} = \begin{pmatrix}
+    a & b \\
+    c & -a
+\end{pmatrix}$, 且满足 $a^2 + bc = 0$.
+\end{solution}
+
+\newpage
+\subsection*{题目 10}
+\begin{problem*}
+(1) 求所有与矩阵 $\mat{A} = \begin{pmatrix}
+    0 & 1 & 0 & \cdots & 0 & 0 \\
+    0 & 0 & 1 & \cdots & 0 & 0 \\
+    0 & 0 & 0 & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & 0 & 1 \\
+    0 & 0 & 0 & \cdots & 0 & 0
+\end{pmatrix}_{n \times n}$ 可交换的矩阵.
+\end{problem*}
+\begin{solution}
+设 $\mat{B}_{n \times n} = (b_{ij})_{n \times n}$, 那么
+\[
+\mat{A}\mat{B} = 
+\begin{pmatrix}
+    b_{21} & b_{22} & \cdots & b_{2n} \\
+    b_{31} & b_{32} & \cdots & b_{3n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    b_{n1} & b_{n2} & \cdots & b_{nn} \\
+    0 & 0 & \cdots & 0 
+\end{pmatrix},
+\]
+即 $\mat{A}\mat{B}$ 的第 $i(i < n)$ 行是 $B$ 的第 $i + 1$ 行, 最后一行为 $0$.
+
+\[
+\mat{B}\mat{A} = 
+\begin{pmatrix}
+    0 & b_{11} & \cdots & b_{1, n - 1} \\
+    0 & b_{21} & \cdots & b_{2, n - 1} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & b_{n1} & \cdots & b_{n, n - 1}
+\end{pmatrix},
+\]
+即 $\mat{B}\mat{A}$ 的第 $i(i > 1)$ 列是 $B$ 的第 $i - 1$ 列, 最后一行为 $0$.
+
+如若 $\mat{A}$ 和 $\mat{B}$ 可交换, 那么 $\mat{A}\mat{B} = \mat{B}\mat{A}$. 从左边第 $1$ 列可看出
+\[
+    b_{i1} = 0, \quad \forall i > 1,
+\]
+从下面最后一行可看出
+\[
+    b_{ni} = 0, \quad \forall i < n,
+\]
+再由右上的 $(n - 1) \times (n - 1)$ 区域可以看出
+\[
+    b_{ij} = b_{i + 1, j + 1}, \quad \forall i, j < n.
+\]
+
+这样我们就确定了所有元素满足的约束. 因此 $\mat{B}$ 为
+\[
+    \begin{pmatrix}
+        t_1 & t_2 & t_3 & \cdots & t_{n} \\
+        0 & t_1 & t_2 & \cdots & t_{n - 1} \\
+        0 & 0 & t_1 & \cdots & t_{n - 2} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & t_1
+    \end{pmatrix},
+\]
+即每条左上到右下的斜线上元素都相同的上三角矩阵.
+\end{solution}
+
+\begin{problem*}
+(2) 设 $\mat{B}$ 是一个对角线上元素互不相同的对角阵. 求所有与 $\mat{B}$ 可交换的矩阵.
+\end{problem*}
+\begin{solution}
+设 $\mat{B} = \mathrm{diag}(\lambda_1, \cdots, \lambda_n)$, 并且 $\mat{D} = (d_{ij})$ 与 $\mat{B}$ 可交换. 那么
+\[
+\mat{B}\mat{D} = 
+\begin{pmatrix}
+    \lambda_1 d_{11} & \lambda_1 d_{12} & \cdots & \lambda_1 d_{1n} \\
+    \lambda_2 d_{21} & \lambda_2 d_{22} & \cdots & \lambda_2 d_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \lambda_n d_{n1} & \lambda_n d_{n2} & \cdots & \lambda_n d_{nn}
+\end{pmatrix},
+\]
+即 $\mat{D}$ 的第 $i$ 行乘上了 $\lambda_i$,
+
+\[
+\mat{D}\mat{B} = 
+\begin{pmatrix}
+    \lambda_1 d_{11} & \lambda_2 d_{12} & \cdots & \lambda_n d_{1n} \\
+    \lambda_1 d_{21} & \lambda_2 d_{22} & \cdots & \lambda_n d_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \lambda_1 d_{n1} & \lambda_2 d_{n2} & \cdots & \lambda_n d_{nn}
+\end{pmatrix},
+\]
+即 $\mat{D}$ 的第 $i$ 列乘上了 $\lambda_i$.
+
+$\mat{B}\mat{D} = \mat{D}\mat{B}$, 所以对任意 $1 \leqslant i, j \leqslant n$, 应该有
+\[
+\lambda_i d_{ij} = \lambda_j d_{ij},
+\]
+而因为 $i \not= j$ 时 $\lambda_i \not= \lambda_j$, 所以 $i \not= j$ 时 $d_{ij} = 0$. 即 $\mat{D}$ 也是对角阵.
+\end{solution}
+
+\begin{problem*}
+(3) 证明: 矩阵 $\mat{C}$ 与所有 $n$ 阶方阵可交换当且仅当 $\mat{C}$ 是数量阵.
+\end{problem*}
+\begin{solution}
+``$\Rightarrow$'': 记 $n \times n$ 矩阵 $\mat{E}_{ij}$ 为第 $i$ 行第 $j$ 列的元素为 $1$, 其他元素均为 $0$ 的矩阵. 设 $C = (c_{ij})_{n \times n}$, 则
+\[
+\mat{C}\mat{E}_{ij} = 
+\begin{pmatrix}
+    \mat{0}_{n \times 1} & \cdots & \mat{0}_{n \times 1} &  \underset{\text{结果的第} i \text{列}}{\mat{C}\text{的第} j \text{列}} & \mat{0}_{n \times 1} & \cdots & \mat{0}_{n \times 1}
+\end{pmatrix},
+\]
+而
+\[
+\mat{E}_{ij}\mat{C} = 
+\begin{pmatrix}
+    \mat{0}_{1 \times n} \\
+    \vdots \\
+    \mat{0}_{1 \times n} \\
+    \underset{\text{结果的第} j \text{行}}{\mat{C}\text{的第} i \text{行}} \\
+    \mat{0}_{1 \times n} \\
+    \vdots \\
+    \mat{0}_{1 \times n}
+\end{pmatrix}.
+\]
+
+因为 $\mat{C}$ 与所有 $n$ 阶方阵可交换, 所以对任意 $i, j$ 都有 $\mat{C}\mat{E}_{ij} = \mat{E}_{ij}\mat{C}$. 因此
+\[
+c_{ij} = 0, \quad \text{若} i \not= j, 
+\]
+同时, 乘积的第 $j$ 行第 $i$ 列元素相等, 所以 $c_{ii} = c_{jj}$. 所以由 $i, j$ 任意性, $\mat{C}$ 是数量阵.
+
+``$\Leftarrow$'': 反过来若 $\mat{C}$ 是数量阵, 那么存在 $k \in \mathbb{F}$, $\mat{C} = k\mat{E}_n$. 而单位阵与任意 $n$ 阶方阵都可交换. 所以$\mat{C}$ 与所有 $n$ 阶方阵可交换.
+
+这个问题还可以用 (1) 和 (2) 来证明. 如果 $\mat{C}$ 与所有 $n$ 阶方阵可交换, 那么它必须和 (1) 中的 $\mat{A}$, (2) 中的 $\mat{B}$ 交换, 利用上面两个问题的计算结果, 容易得到 $\mat{C}$ 必须是数量阵.
+\end{solution}
+
+\newpage
+\subsection*{题目 11}
+\begin{problem*}
+证明
+\begin{enumerate}
+    \item $\tr(\mat{A} + \mat{B}) = \tr(\mat{A}) + \tr(\mat{B})$;
+    \item $\tr(k\mat{A}) = k\tr(\mat{A})$;
+    \item $\tr(\mat{A}\mat{B}) = \tr(\mat{B}\mat{A})$;
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+    设 $\mat{A} = (a_{ij})_{n \times n}$, $\mat{B} = (b_{ij})_{n \times n}$,
+\[
+    \tr(\mat{A}) = \sum_{i = 1}^{n} a_{ii}, \quad \tr(\mat{B}) = \sum_{i = 1}^{n} b_{ii}.
+\]
+\begin{enumerate}
+    \item \[
+    \begin{aligned}
+        \tr(\mat{A} + \mat{B}) 
+        ={}& \sum_{i = 1}^{n} (a_{ii} + b_{ii}) \\
+        ={}& \sum_{i = 1}^{n} a_{ii} + \sum_{i = 1}^{n} b_{ii} \\
+        ={}& \tr(\mat{A}) + \tr(\mat{B});
+    \end{aligned}
+    \]
+    \item \[
+    \begin{aligned}
+        \tr(k\mat{A}) 
+        ={}& \sum_{i = 1}^{n} ka_{ii} \\
+        ={}& k\sum_{i = 1}^{n} a_{ii} \\
+        ={}& k\tr(\mat{A});
+    \end{aligned}
+    \]
+    \item $\mat{A}\mat{B}$ 的对角线 $(i, i)$ 处的元素为 $\sum_{k = 1}^{n} a_{ik} b_{ki}$, 所以
+    \[
+        \tr(\mat{A}\mat{B}) = \sum_{i = 1}^{n} \sum_{k = 1}^{n} a_{ik} b_{ki}, \quad
+        \tr(\mat{B}\mat{A}) = \sum_{i = 1}^{n} \sum_{k = 1}^{n} b_{ik} a_{ki},
+    \]
+    因为 $i, k$ 只是求和下标记号, 所以将第二个求和式的 $i, k$ 位置互换, 可见二者相等. 即 $\tr(\mat{A}\mat{B}) = \tr(\mat{B}\mat{A})$.
+\end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{题目 13}
+\begin{problem*}
+证明: 若 $\mat{A}$ 实对称, 且 $\mat{A}^2 = \mat{O}$, 则 $\mat{A} = \mat{O}$.
+\end{problem*}
+\begin{solution}
+设 $\mat{A} = (a_{ij})_{n \times n}$, 那么 $a_{ij} \in \real$ 且对任意 $i, j = 1, 2, \cdots, n$ 都有 $a_{ij} = a_{ji}$. 则 $\mat{A}^2$ 的对角线 $(i, i)$ 处的元素为 $\sum_{k = 1}^{n} a_{ik} a_{ki} = \sum_{k = 1}^{n} a_{ik}^2 = 0$. 由于对任意的 $k$ 和 $i$ 都有 $a_{ik} \in \real$, 所以对任意的 $k$ 和 $i$ 都有 $a_{ik} = 0$. 即 $\mat{A} = \mat{O}$.
+\end{solution}
+
+\subsection*{题目 15}
+\begin{problem*}
+设 $\mat{A}$, $\mat{B}$ 是两个反对称阵.
+\begin{enumerate}
+    \item $\mat{AB} - \mat{BA}$ 是反对称阵;
+    \item 任一 $n$ 阶矩阵都可以表示为一个对称阵与一个反对称阵的和.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+\begin{enumerate}
+    \item 我们用 17 题的结论. 那么 $(\mat{AB} - \mat{BA})^{\mathrm{T}} = (\mat{AB})^{\mathrm{T}} - (\mat{BA})^{\mathrm{T}} = \mat{B}^{\mathrm{T}}\mat{A}^{\mathrm{T}} - \mat{A}^{\mathrm{T}}\mat{B}^{\mathrm{T}} = \mat{BA} - \mat{AB}$;
+    \item 任取一个 $n$ 阶矩阵 $\mat{A} \in \mathbb{F}^{n \times n}$, $\mat{S} = \frac{1}{2}(\mat{A} + \mat{A}^{\mathrm{T}})$ 是对称阵, $\mat{K} = \frac{1}{2}(\mat{A} - \mat{A}^{\mathrm{T}})$ 是反对称阵, 且 $\mat{S} + \mat{K} = \mat{A}$.
+\end{enumerate}
+\end{solution}
+
+\subsection*{题目 16}
+\begin{problem*}
+设 $A \in \mathbb{F}^{n \times n}$, 如果对 $\mathbb{F}^{n \times 1}$ 中所有向量 $\mat{X} = (x_1, \cdots, x_n)^{\mathrm{T}}$ 都有 $\mat{AX} = \mat{O}$, 那么 $\mat{A} = \mat{O}$.
+\end{problem*}
+\begin{solution}
+取 $e_i = (0, \cdots, 0, 1, 0, \cdots, 0)^{\mathrm{T}}$, 即第 $i$ 行是 $1$, 其他行均为 $0$ 的列向量. 那么
+\[
+\mat{A}e_i = (a_{1i}, a_{2i}, \cdots, a_{ni})^{\mathrm{T}} = \mat{O},
+\]
+即结果是 $\mat{A}$ 的第 $i$ 列. 由于这对任何 $i$ 都成立, 所以 $\mat{A} = \mat{O}$. 同时 $\mat{A} = \mat{O}$ 时, 对任何列向量 $\mat{X}$ 都有 $\mat{AX} = \mat{O}$. 因此 $\mat{A} = \mat{O}$ 得证.
+\end{solution}
+
+\subsection*{题目 17}
+\begin{problem}
+证明 $(\mat{AB})^{\mathrm{T}} = \mat{B}^{\mathrm{T}} \mat{A}^{\mathrm{T}}$.
+\end{problem}
+
+\begin{solution}
+设 $\mat{A} = (a_{ij})_{n \times m}$, $\mat{B} = (b_{ij})_{m \times n}$. 记 $\mat{C} := \mat{AB} = (c_{ij})_{n \times n}$, $\mat{D} := \mat{B}^{\mathrm{T}} \mat{A}^{\mathrm{T}} = (d_{ij})_{n \times n}$. 那么
+\[
+c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj}, \quad d_{ij} = \sum_{k = 1} b_{ki} a_{jk},
+\]
+所以 $c_{ji} = \sum_{k = 1}^{n} a_{jk} b_{ki} = d_{ij}$. 这说明 $(\mat{C}^{\mathrm{T}})_{ij} = \mat{D}_{ij}$, 因此得证.
+\end{solution}
+
+\newpage
+\section{第二次作业}
+\subsection*{题目 1}
+\begin{problem*}
+    计算以下排序的逆序数, 从而确定它们的奇偶性:
+\begin{enumerate}
+    \item[(3)] $1 3 \cdots (2n - 1)(2n)(2n - 2) \cdots 2$;
+    \item[(4)] $147 \cdots (3n - 2)258 \cdots (3n - 1)$.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+\begin{enumerate}
+    \item[(3)] 前面一半是升序排列, 从 $2n - 2$ 开始才有逆序对出现. 每个偶数 $2k$ 前面比它大的数为 $2k + 1$ 到 $2n$, 共 $2n - 2k$ 个数(也就是贡献了 $2n - 2k$ 个逆序对). 所以逆序对一共
+    \[
+    \sum_{k = 1}^{n} 2n - 2k = n^2 - n
+    \]
+    个, 所以此为偶排序.
+    \item[(4)] 前面一半是升序排列, 从 $2$ 开始才有逆序对出现. 对于 $3k - 1$, 前面比它大的数为 $3k$ 到 $3n$ 中模 $3$ 余 $1$ 的数(即 $3t - 2$ 型, 一共是 $n - k$ 个). 所以逆序对一共
+    \[
+    \sum_{k = 1}^{n} n - k = \frac{1}{2}n(n - 1)
+    \]
+    个. 所以 $n = 4k$ 或 $n = 4k + 3$ 时是偶排列, $n = 4k + 1$ 或 $n = 4k + 2$ 时是奇排列.
+\end{enumerate}
+\end{solution}
+
+\subsection*{题目 3}
+\begin{problem*}
+如果排列 $x_1 x_2 \cdots x_{n - 1} x_n$ 的逆序数为 $k$, 排列 $x_n x_{n - 1} \cdots x_2 x_1$ 的逆序数是多少?
+\end{problem*}
+\begin{solution}
+定义 $\pi_{P}(i)$ 表示在某个排列 $P$ 之中, 数字 $i$ 前面比 $i$ 大的数. 数字 $i$ 和前面每个比它大的数都构成一个逆序对, 而且当我们从 $1$ 到 $n$ 考虑了所有这样的逆序对之后, 就毫无遗漏地找到了排列 $P$ 中所有的逆序对. 这是因为每个逆序对都在其小的那个数那里被统计了一次, 且仅统计了这一次. 因此排列 $P$ 的逆序数
+\begin{equation*}\label{eq::1}
+    \tau(P) = \sum_{i = 1}^{n} \pi_{P}(i). \tag{$\ast$}
+\end{equation*}
+
+记题目中出现的两个排列分别为 $P_1 \colon x_1 x_2 \cdots x_{n - 1} x_n$ 和 $P_2 \colon x_n x_{n - 1} \cdots x_2 x_1$. 因为 $P_2$ 是 $P_1$ 逆转过来, 所以 $\pi_{P_1}(i)$ 和 $\pi_{P_2}(i)$ 分别对应了在 $P_1$ 中, $i$ 前面和后面比 $i$ 大的数的个数. 而比一个数 $i$ 大的数只有 $n - i$ 个, 所以 $\pi_{P_1}(i) + \pi_{P_2}(i) = n - i$. 那么用上面的公式 (\ref{eq::1}) 得到 
+\[
+    \tau(P_1) + \tau(P_2) = \sum_{i = 1}^{n} n - i = \frac{n(n - 1)}{2},
+\]
+所以 $\tau(P_2) = \tau(x_n x_{n - 1} \cdots x_2 x_1) = \frac{n(n - 1)}{2} - k$.
+\end{solution}
+
+\newpage
+\subsection*{题目 6}
+\begin{problem*}
+设排列 $x_1 x_2 \cdots x_n$ 的逆序数为 $k$,
+\begin{enumerate}
+    \item 试证明可经过 $k$ 次对换, 把 $x_1 x_2 \cdots x_n$ 变成排列 $12 \cdots n$.
+    \item 试问上述对换是不是最少次数的对换.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+(1) 
+
+\textbf{思路一}: 
+
+首先证明: \textbf{如果逆序数 $k > 0$, 那么一定存在相邻的两个数 $x_i$ 和 $x_{i + 1}$, 满足 $x_i > x_{i + 1}$, 即在相邻的逆序对.}
+\begin{proof}
+    用反证法. 假设要证明的论断不正确, 即存在排列 $x_1 x_2 \cdots x_n$, 对任何 $i$ 满足 $x_i > x_{i + 1}$, 但是逆序数 $k > 0$. 由证法的假设, 我们知道 $x_i$ 是严格单调递增的, 所以其逆序数为 $k = 0$, 矛盾. 因此假设不成立, 原命题为真.
+\end{proof}
+    
+有了这个结论, 我们按如下算法操作: 
+
+    \textbf{如果逆序数为 $0$, 则停止; 否则选择排列中相邻的一组逆序对, 交换它们的位置使这个逆序消除.}
+    
+首先, 我们证明的结论保证在逆序数非零时总能找到一组满足算法要求的逆序对, 所以算法是可以执行的; 其次, 书中定理 2.1.1 的证过程的第一步说明: 对换相邻的两个数, 且在前面的数较大, 那么逆序数会减少 $1$. 所以算法会在 $k$ 步后得到一个逆序数为 $0$ 的排列, 进而终止. 此这个算法就给出了一个经过 $k$ 次对换, 把 $x_1 x_2 \cdots x_n$ 变成排列 $12 \cdots n$ 的方案.
+    
+\textbf{思路二}:
+    
+如果我们按顺序把 $1, 2, \cdots, n$ 一点点换到其对应的位置上, 那么这个过程需要多少步呢? 这里换到对应的位置是指: 如果数字 $i$ 在位置 $i$, 那么不需要操作; 如果数字 $i$ 在位置 $j < i$ 处, 那么就将 $i$ 反复与它前面的数对换, 直到 $i$ 到达 $i$ 位. 我们首先验证这个方案的可行性, 即能否保证在开始调整数字 $i$ 前, $i$ 的位置 $j \geqslant i$?
+
+首先, 数字 $1$ 一定是满足这个要求的. 如果说前 $k - 1$ 个数已经调整好了, 那么现在这个排列就是 $123 \cdots (k - 1) x_k \cdots x_n$, 所以 $k$ 的位置一定不小于 $k$, 如果 $k$ 已经在 $k$ 位, 那么就不需要换了, 否则也是满足方案要求的. 所以方案可行.
+
+接着我们再计算一下各个数字都需要换几步. 首先数字 $1$ 的步数就是它所在位置编号 $j_1$ 减 $1$. 而所有数都是比 $1$ 大的, 所以 $1$ 前面比 $1$ 大的数的个数 $\pi_{P}(1)$ 正好就是 $j_1 - 1$. 所以把 $1$ 对换到第一个位置, 需要 $\pi_{P}(1)$ 步.
+
+因为每次对换的主角都是\textbf{不在正确位置的最小的数}, 因此对换后, 所有等待被调整位置的数, 也就是比当前正在换位置的数\textbf{大}的那些数, 这些数的前面比其大的数之个数是不变的, 因为这些数一直没有动过, 只是有一些比它们小的数从它们身边``穿过''. 所以当我们开始对换数 $i$ 时, 数 $i$ 前面比它大的数还在 $i$ 的前面, 也就是比它大的数之个数仍然是一开始的 $\pi_{P}(i)$. 类似对换 $1$ 的情况, 对换 $i$ 到 $i$ 位需要 $\pi_{P}(i)$ 步. 所以这个方案需要的步数正好是 $\sum_{i = 1}^{n} \pi_{P}(i) = k$ 步.
+    
+实际上, 正是因为每次对换的都是不在正确位置的最小的数, 所以实际上每次对换都恰好是第一种思路中提到的``相邻逆序对''. 所以第二个思路可以说是第一个思路的具体实现, 第一个思路利用抽象理论证明了方案的存在性, 而第二个思路是第一个方案的一种实现.
+
+(2) 不是. 例如 $321$ 这个排列的逆序数是 $2$, 但是最少只需要一步(对换 1 和 3)就可以变成顺序排列.   
+\end{solution}

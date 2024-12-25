@@ -1,0 +1,190 @@
+\title{第十三周作业}
+\author{洪艺中}
+\maketitle
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+
+\subsection*{ 习题 7.1 题目 5 }
+\begin{solution}
+度量矩阵是
+\[
+\begin{pmatrix}
+    4 & 3 & 2 & 1 \\
+    3 & 3 & 2 & 1 \\
+    2 & 2 & 2 & 1 \\
+    1 & 1 & 1 & 1
+\end{pmatrix}.
+\]
+\end{solution}
+
+\subsection*{ 习题 7.1 题目 6(思考题) }
+\begin{solution}
+内积在不同基下的度量矩阵是合同的, 可以利用过渡矩阵与坐标的关系来说明这一点.
+\end{solution}
+
+\subsection*{ 习题 7.2 题目 5 }
+\begin{solution}
+证明: 考虑任意线性组合
+\[
+c_1 \mlbe_1 + \cdots + c_s \mlbe_s, 
+\]
+与 $\mlal$ 内积得到
+\[
+(\mlal, c_1 \mlbe_1 + \cdots + c_s \mlbe_s) = c_1 (\mlal, \mlbe_1) + \cdots + c_s (\mlal, \mlbe_s) = 0,
+\]
+所以正交.
+\end{solution}
+
+\subsection*{ 习题 6 }
+\begin{solution}
+证明: 对称性
+\[
+\mh^\top = (\me - 2\mlx\mlx^\top)^\top = \me - 2\mlx\mlx^\top = \mh,
+\]
+正交的证明需要用到 $\mlx^\top\mlx = 1$,
+\[
+    \mh \mh^\top = \mh^2 = \me - 4\mlx\mlx^\top + 4\mlx\mlx^\top\mlx\mlx^\top = \me,
+\]
+所以是正交的.
+\end{solution}
+
+\subsection*{ 题目 8 }
+\begin{solution}
+\begin{enumerate}
+    \item 由于 $\mlga$ 可以用 $\mlal$ 线性表示 $\mlga = c_1 \mlal_1 + \cdots + c_n \mlal_n$, 所以 $(\mlga, \mlga) = c_1 (\mlga, \mlal_1) + \cdots + c_n (\mlga, \mlal_n) = 0$. 由正定性, $\mlga = \mat{\theta}$;
+    \item 题目的条件说明 $(\mlga_1 - \mlga_2, \mlal) = 0$, 代入 $\mlal = \mlal_i$, 由 (1) 的结论, $\mlga_1 - \mlga_2 = \mat{\theta}$, 即二者相等.
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 9 }
+\begin{solution}
+% 首先我们说明, 如果一个向量在 $L(\mlal_1, \cdots, \mlal_m)$ 中, 且其与所有 $\mlal_i$ 的内积都是 $0$, 那么它是零向量. 这个结论可以用上一题中 (1) 的方法得到, 区别是这里不需要 $\mlal_i$ 这组向量是线性无关的, 虽然它们可能线性相关, 但是依然可以线性表示张成的子空间里的任意向量. 
+
+可以看到 Gram 行列式对应的矩阵 $\mg$ (我们称为 Gram 矩阵)和度量矩阵的区别是构造其的向量组未必是一组基. 但是这不影响我们得到
+\[
+\mlx^\top \mg \mlx = (x_1 \mlal_1 + \cdots + x_n \mlal_n, x_1 \mlal_1 + \cdots + x_n \mlal_n),
+\]
+由内积的正定性, 
+\[
+    \mlx^\top \mg \mlx = 0 \Leftrightarrow x_1 \mlal_1 + \cdots + x_n \mlal_n = \mat{\theta},
+\]
+所以如果 $ \mlx^\top \mg \mlx = 0$, 就说明 $x_1 \mlal_1 + \cdots + x_n \mlal_n = \mat{\theta}$, 那么代入 $\mg$ 的定义计算可得 $\mg \mlx = 0$; 而 $\mg \mlx = 0$ 时,显然有 $ \mlx^\top \mg \mlx = 0$, 所以
+\[
+    \mlx^\top \mg \mlx = 0 \Leftrightarrow \mg \mlx = \mat{\theta}, 
+\]
+
+回到题目, 我们可以证明: $\mlal_1, \cdots, \mlal_m$ 线性相关 $\Leftrightarrow$ 存在不全为 $0$ 的系数 $x_i$, $x_1 \mlal_1 + \cdots + x_n \mlal_n = \mat{\theta}$ $\Leftrightarrow$ 存在非零向量 $\mlx$, $\mlx^\top \mg \mlx = 0$ $\Leftrightarrow$ $\mg \mlx = \mat{\theta}$ 有非零解 $\Leftrightarrow$ Gram 行列式为 $0$.
+\end{solution}
+
+\subsection*{ 题目 11 }
+\begin{solution}
+\begin{enumerate}
+    \item 利用 $|\ma^2| = |\ma\ma^\top| = 1$ 可知 $|\ma| = |\ma^\top|$, 同样地也有 $|\mb| = |\mb^\top|$. 所以 $|\ma^\top \mb| = |\ma^\top||\mb| = |\ma||\mb| = 1$, 其他类似;
+    \item $|\ma + \mb| = |\ma\ma^\top\ma + \mb\ma^\top\ma| = |\ma\ma^\top+ \mb\ma^\top||\ma| = |\me + \mb\ma^\top||\ma|$, 通过类似的运算可得 $|\mb + \ma| = |\me + \ma\mb^\top||\mb|$, 而 $|\me + \mb\ma^\top| = |(\me + \mb\ma^\top)^\top| = |\me + \ma\mb^\top|$, $|\ma|$ 和 $|\mb|$ 异号, 所以 $|\ma + \mb| = -|\mb + \ma|$, 即 $|\ma + \mb| = 0$.
+\end{enumerate}
+\end{solution}
+
+\newpage
+\section{第二部分}
+
+\subsection*{ 习题 8.1 题目 1 偶数 }
+\begin{solution}
+\begin{enumerate}
+    \item 特征值 $1$, 特征向量 $\left(\begin{matrix}
+        -1 & -1 & 1
+        \end{matrix}\right)^\top$;
+    \item 特征值 $1, 2, -3 - \mathrm{i}\sqrt{5}, -3 + \mathrm{i}\sqrt{5}$, 对应的特征向量分别是
+    \[
+        \left(\begin{matrix}
+            \frac{-1}{6} \\
+            \frac{-1}{2} \\
+            \frac{-1}{2} \\
+            1
+            \end{matrix}\right), \quad \left(\begin{matrix}
+                0 \\
+                \frac{-1}{3} \\
+                0 \\
+                1
+                \end{matrix}\right), \quad \left(\begin{matrix}
+                    \frac{\mathrm{i}\sqrt{5}+2}{3} \\
+                    1 \\
+                    0 \\
+                    0
+                    \end{matrix}\right), \quad \left(\begin{matrix}
+                        \frac{-\mathrm{i}\sqrt{5}+2}{3} \\
+                        1 \\
+                        0 \\
+                        0
+                        \end{matrix}\right);
+    \]
+    \item 特征值 $0, \mathrm{i}\sqrt{14}, -\mathrm{i}\sqrt{14}$, 对应的特征向量分别是
+    \[
+        \left(\begin{matrix}
+            \frac{3}{2} \\
+            \frac{-1}{2} \\
+            1
+            \end{matrix}\right), \quad \left(\begin{matrix}
+                \frac{-\mathrm{i}\sqrt{14}-6}{10} \\
+                \frac{-\mathrm{i}3\sqrt{14}+2}{10} \\
+                1
+                \end{matrix}\right), \quad \left(\begin{matrix}
+                    \frac{\mathrm{i}\sqrt{14}-6}{10} \\
+                    \frac{\mathrm{i}3\sqrt{14}+2}{10} \\
+                    1
+                    \end{matrix}\right).
+    \]
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 2 }
+\begin{solution}
+计算
+\[
+\ma \mat{\xi} = (-4, a + 10, -2b)^\top = \lambda(1, -2, 3)^\top,
+\]
+所以 $\lambda = -4$, $a = -2$, $b = 6$.
+\end{solution}
+
+\subsection*{ 习题 8.2 题目1 }
+\begin{solution}
+证明: 设 $\lambda$ 是 $\ma$ 的特征值, $\mat{\xi}$ 是其对应的特征向量. 则 $\lambda \xi = \ma \xi = \ma^2 \xi = \lambda^2 \xi$, 由于 $\xi \not= \mat{\theta}$, $\lambda = \lambda^2$, 所以 $\lambda = 0 $ 或 $1$.
+\end{solution}
+
+\subsection*{ 题目 4 }
+\begin{solution}
+直接设特征向量为
+\[
+\begin{pmatrix}
+    x \\ \mlbe
+\end{pmatrix}
+\]
+计算, 解出特征值为 $0, |\mlal|, -|\mlal|$, 对应的特征子空间是
+\[
+V_0 = \left\{ \begin{pmatrix}
+0 \\ \mlbe
+\end{pmatrix} \colon\  \bar{\mlal}^\top \mlbe = 0 \right\},
+\]
+\[
+V_{|\mlal|} = L\left\{ \begin{pmatrix}
+    1 \\ \frac{\mlal}{|\mlal|} 
+    \end{pmatrix} \right\},
+\]
+\[
+V_{-|\mlal|} = L\left\{ \begin{pmatrix}
+    1 \\ -\frac{\mlal}{|\mlal|} 
+    \end{pmatrix} \right\},
+\]
+\end{solution}
+
+\subsection*{ 题目 5 }
+\begin{solution}
+设 $\ma^{-1}\mlal = \lambda \mlal$, 则 $\mlal = \lambda \ma \mlal$, 所以
+\[
+    \lambda \ma \mlal = \lambda \begin{pmatrix}
+    3 + k \\ 2 + 2k \\ 3 + k
+\end{pmatrix} = \begin{pmatrix}
+    1 \\ k \\ 1
+\end{pmatrix},
+\]
+那么 $k = 1$ 或 $k = -2$.
+\end{solution}

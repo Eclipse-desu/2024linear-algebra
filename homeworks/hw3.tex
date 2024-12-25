@@ -1,0 +1,52 @@
+\title{第三周作业}
+\author{洪艺中}
+\maketitle
+\section{第一次作业}
+\subsection*{题目1 单号}
+\begin{enumerate}
+    \item[(1)] 0;
+    \item[(3)] 0;
+    \item[(5)] $3 \times 5^5 = 9375$, \textit{提示: 分拆成全为 $2$ 的列和只有 $5$ 与 $0$ 的列};
+    \item[(7)] 0. 
+\end{enumerate}
+
+\subsection*{题目2 双号}
+\begin{enumerate}
+    \item[(2)] $(a + b + c)^3$;
+    \item[(4)] $(-1)^{n - 1}x^{n - 2}$, \textit{提示: 习题课讲};
+    \item[(6)] $\displaystyle \prod_{i = 1}^{n} a_i \cdot (n + 1)b$, \textit{提示: 从第 $1$ 列开始, 按顺序将第 $i$ 列加到第 $i + 1$ 列上去, 可以得到一个对角阵};
+    \item[(8)] $x^n + a_{1}x^{n - 1} + \cdots + a_n$, \textit{提示: 从第 $n$ 列开始, 按顺序将第 $i + 1$ 列加到第 $i$ 列上去, 再把最后一行挪到第一行, 可以得到一个对角阵};
+    \item[(10)] $\displaystyle \sum_{i = 0}^n \prod_{j = 0, j \not= i}^{n} a_j$, \textit{提示: 拆分列, 如第一列拆分为 $(a_0 \quad 0)^{\mathrm{T}}$ $+$ $(a_1 \quad  a_1)^{\mathrm{T}}$ }.
+\end{enumerate}
+
+\section{第二次作业}
+\subsection*{题目1}
+\begin{enumerate}
+    \item $\displaystyle D_n = 2 - \frac{n(n + 1)}{2}$;
+    \item 即用 $t_i$ 替换原行列式的第 $1$ 行. 结果是 $t_1 - \sum_{j = 2}^{n} t_j$.
+\end{enumerate}
+
+\subsection*{题目2}
+$\dfrac{4}{3}n$, \textit{提示: 把 $D$ 中其他行加到第 $i$ 行上去, 得到的行列式的第 $i$ 行都是 $3$, 再按行展开, 即得 $A_{ij}$ 求和式的值}.
+
+\subsection*{题目4}
+$0$, \textit{提示: $f(x) = (x - x_1)(x - x_2)(x - x_3) = x^3 + px + q$, 所以 $x_1 + x_2 + x_3 = 0$}.
+
+\subsection*{题目5}
+参考 49 页例题 2.3.4.
+
+\subsection*{题目6 (1)}
+\[
+\begin{cases}
+    x_1 = 1; \\
+    x_2 = 3; \\
+    x_3 = 2; \\
+    x_4 = -1. \\
+\end{cases}
+\]
+
+\subsection*{题目7 (2) (5)}
+\begin{enumerate}
+    \item[(2)] $\displaystyle (-1)^{\frac{n(n - 1)}{2}}\frac{(n + 1)n^{n - 1}}{2}$, \textit{提示: 习题课讲};
+    \item[(5)] $\displaystyle \left(\sum_{i = 1}^{n} x_i\right) \prod_{i < j} (x_i - x_j)$, \textit{提示: 补全为一个完整的 Vandermonde 行列式, 即补上 $n-1$ 次的行, 同时在右边加一列 $y$ 构成的列. 按新加的列展开, 会发现原行列式和 $y^{n - 1}$ 的系数有关系}.
+\end{enumerate}

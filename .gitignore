@@ -26,7 +26,10 @@
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
+<<<<<<< HEAD
 *.bbl-SAVE-ERROR
+=======
+>>>>>>> 1832e4f (Initial commit)
 *.bcf
 *.blg
 *-blx.aux
@@ -40,8 +43,11 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+<<<<<<< HEAD
 *.rubbercache
 rubber.cache
+=======
+>>>>>>> 1832e4f (Initial commit)
 
 ## Build tool directories for auxiliary files
 # latexrun
@@ -141,9 +147,12 @@ acs-*.bib
 *.trc
 *.xref
 
+<<<<<<< HEAD
 # hypdoc
 *.hd
 
+=======
+>>>>>>> 1832e4f (Initial commit)
 # hyperref
 *.brf
 
@@ -305,3 +314,9 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+<<<<<<< HEAD
+=======
+
+not-to-upload/
+link-config.bat
+>>>>>>> 1832e4f (Initial commit)
