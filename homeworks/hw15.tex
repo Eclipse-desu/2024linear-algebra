@@ -1,0 +1,294 @@
+\title{第十六周作业?}
+\author{洪艺中}
+\maketitle
+
+本文档仅提供 10.5 节部分习题的答案, 第十六周第二部分作业没做.
+
+\section{第一部分}
+\newcommand{\lvec}[1]{\overrightarrow{#1}}
+\newcommand{\mpp}{\mat{P}}
+\newcommand{\muu}{\mat{U}}
+
+\subsection*{ 习题 10.5 题目 13 }
+\begin{problem*}
+ 设 $\ma$ 是一个正定矩阵, $\mb = \begin{pmatrix}
+    \ma & \mlal \\
+    \mlal^\top & a
+\end{pmatrix}$, 其中 $a \in \real$. 证明:
+\begin{enumerate}
+    \item $\mb$ 正定当且仅当 $a - \mlal^\top \ma \mlal > 0$;
+    \item $\mb$ 半正定当且仅当 $a - \mlal^\top \ma \mlal \geqslant 0$.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+    \begin{enumerate}
+        \item 取 $\begin{pmatrix} \mlx^\top & y \end{pmatrix} \not= \mat{\theta}$,
+        \[\label{eq::1}
+        \begin{pmatrix}
+            \mlx^\top & y
+        \end{pmatrix} \mb
+        \begin{pmatrix}
+            \mlx \\ y
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \mlx^\top & y
+        \end{pmatrix}
+        \begin{pmatrix}
+            \ma \mlx + y \mlal \\
+            \mlal^\top \mlx + ay
+        \end{pmatrix} = 
+        \mlx^\top \ma \mlx + y \mlx^\top \mlal + y\mlal^\top \mlx + ay^2, \tag{$\ast$}
+        \]
+        如果 $\mb$ 正定, 那么 (\ref{eq::1}) 式为正. 取 $\mlx = \ma^{-1}\mlal$, $y = -1$ 得到
+        \[
+        \mlal^\top \ma^{-1} \mlal - 2 \mlal^\top \ma^{-1} \mlal + a > 0,
+        \]
+        即
+        \[
+            a - \mlal^\top \ma^{-1} \mlal > 0;
+        \]
+        反过来, 如果上式成立. 因为我们知道 $\mb$ 的前 $n - 1$ 个顺序主子式是 $\ma$ 的主子式, 已经是正的, 所以只需要证明 $\det \mb > 0$ 即可, 利用矩阵的分块初等变换
+        \[
+        \left[
+            \begin{matrix}
+                \me & \mat{\theta} \\
+                -\mlal^\top \ma & 1
+            \end{matrix}
+        \right]\mb = \left[
+            \begin{matrix}
+                \me & \mat{\theta} \\
+                -\mlal^\top \ma & 1
+            \end{matrix}
+        \right]
+        \left[
+            \begin{matrix}
+                \ma & \mlal \\
+                \mlal^\top & a
+            \end{matrix}
+        \right] =
+        \left[
+            \begin{matrix}
+                \ma & \mlal \\
+                \mat{\theta}^\top & a-\mlal^\top \ma \mlal
+            \end{matrix}
+        \right],
+        \]
+        所以
+        \[
+        |\mb| = |\ma|(a - \mlal^\top \ma \mlal),
+        \]
+        因为 $\ma$ 正定, 而条件又给出 $a - \mlal^\top \ma \mlal > 0$, 因此 $|\mb| > 0$, 即 $\mb$ 正定.
+        \item 半正定的情况只需要把上面对应的 $>$ 改为 $\geqslant$ 即可.
+    \end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{ 题目 14 }
+\begin{problem*}
+设 $\ma$ 是一个实对称矩阵, $\mb$ 是一个半正定矩阵. 证明: $\ma\mb$ 的特征值全为实数.
+\end{problem*}
+\begin{solution}
+假设 $\lambda$ 是 $\ma\mb$ 的一个特征值, $\mat{\xi}$ 是对应的一个特征向量, $\ma \mb \mat{\xi} = \lambda \mat{\xi}$. 根据定理 10.5.3, 半正定矩阵可以写成一个实矩阵与其转置的乘积, 即有矩阵 $\mc$, $\mb = \mc^\top \mc$. 则
+\[
+\mc \ma \mb \mat{\xi} = \mc \ma \mc^\top \mc \mat{\xi} = (\mc \ma \mc^\top)(\mc \mat{\xi}) = \lambda \mc \mat{\xi}, 
+\] 
+如果 $\mc \mat{\xi} \not= \mat{\theta}$, 说明 $\lambda$ 是 $\mc \ma \mc^\top$ 的特征值, 而这个矩阵是实对称矩阵, 所以它的特征值一定是实数; 如果 $\mc \mat{\xi} = \mat{\theta}$, 那么 $\ma \mb \mat{\xi} = \mat{\theta}$, 所以特征值是 $0$, 也是实数. Q.E.D.\footnote{Q.E.D.的意思是``\sout{quite easily done}\ quod erat demonstrandum'', 意思是「证毕」}.
+\end{solution}
+
+\subsection*{ 题目 15 }
+\begin{problem*}
+设 $\ma_{n \times n}$ 是一个实对称矩阵, 其最小与最大的特征值分别为 $a, b$. 证明: 对任意的向量 $\mlx \in \real^n$, 有
+\[
+a \mlx^\top \mlx \leqslant \mlx^\top \ma \mlx \leqslant b \mlx^\top \mlx.
+\]
+\end{problem*}
+\begin{solution}
+因为 $\ma$ 是实对称的, 所以存在正交矩阵 $\muu$ 让 $\ma$ 对角化 $\muu^\top \ma \muu = \mat{\Lambda} := \mathrm{diag}(\lambda_1, \lambda_2, \cdots, \lambda_n)$. 那么设 $\mlx = \muu \mly$,
+\[
+\mlx^\top \ma \mlx = \mly^\top \mat{\Lambda} \mly = \sum_{i = 1}^{n} \lambda_i |y_i|^2,
+\]
+因为 $a \leqslant \lambda_i \leqslant b$, 所以
+\[
+    a \sum_{i = 1}^{n} |y_i|^2 \leqslant \mlx^\top \ma \mlx = \sum_{i = 1}^{n} \lambda_i |y_i|^2 \leqslant b \sum_{i = 1}^{n} |y_i|^2.
+\]
+而正交矩阵不改变向量的长度, 所以 $\mly^\top \mly = \mlx^\top \mlx$, 用这一点替换上式的两边, 即得证.
+\end{solution}
+
+\newcommand{\quadform}[2]{{{#1}^{\top}} {#2} {#1}}
+
+\subsection*{ 题目 16 }
+\begin{problem*}
+设 $f(\mlx) := \mlx^\top \ma \mlx$ 是一个实二次型, 有 $n$ 维向量 $\mlx_1$ 与 $\mlx_2$, 使得
+\[
+\quadform{\mlx_1}{\ma} > 0, \qquad \quadform{\mlx_2}{\ma} < 0.
+\]
+证明: 必存在 $n$ 维向量 $\mlx_0$, 使 $\quadform{\mlx_0}{\ma} = 0$.
+\end{problem*}
+\begin{solution}
+思路:\textit{我们假设 $\mlx_1 = \mle_1$, $\mlx_2 = \mle_2$, 且空间为 $2$ 维. 那么就是说二次型在 $(1, 0)$ 点为正, $(0, 1)$ 点为负. 因为二次型是多元多项式, 是连续函数, 那么如果我们在 $(1, 0)$ 点和$(0, 1)$ 点之间连一条线段, 根据连续函数的介值定理, 线段上一定有一个点取到 $0$.}
+
+设 $\mlx(t) = (1 - t)\mlx_1 + t\mlx_2$, 那么
+\[
+    g(t) := f(\mlx(t))
+\]  
+是关于 $t$ 的连续函数, $g(0) > 0$, $g(1) < 0$, 所以由连续性, 存在 $t_0 \in (0, 1)$, 使 $f(t_0) = 0$. 则取 $\mlx_0 = \mlx(t_0)$ 即可.
+\end{solution}
+
+\newpage
+\subsection*{ 题目 17 }
+\begin{problem*}
+设分块矩阵 $\ma = \begin{pmatrix}
+    \ma_{11} & \ma_{12} \\
+    \ma_{21} & \ma_{22}
+\end{pmatrix}$ 是一个正定矩阵. 证明:
+\begin{enumerate}
+    \item 矩阵 $\ma_{11}$, $\ma_{22}$, $\ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}$ 也正定;
+    \item\label{enum::0} $|\ma| \leqslant |\ma_{11}||\ma_{22}|$.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+\begin{enumerate}
+    \item $\ma_{11}$ 和 $\ma_{22}$ 的正定性证明可以用题目 19(在后面)的方法, 即说明他们所有的主子式都是正的. 第三个矩阵会让我们想到 72 页习题 4(1), 即有
+    \[
+    \begin{pmatrix}
+        \me &  \\
+        -\ma_{21}\ma_{11}^{-1} & \me
+    \end{pmatrix}
+    \begin{pmatrix}
+        \ma_{11} & \ma_{12} \\
+        \ma_{21} & \ma_{22}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \me & -\ma_{11}^{-1} \ma_{12} \\
+         & \me
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \ma_{11} & \\
+        & \ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}
+    \end{pmatrix},
+    \]
+    因为 $\ma_{12} = \ma_{21}^\top$, 所以上面是合同变换. 故右边的矩阵和正定矩阵合同, 那么它也是正定的. 所以用和判断前两个矩阵正定同样的理由, 得到 $\ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}$ 也正定.
+    \item 这一题我们分成三步做
+    \begin{enumerate}[label=\alph*)]
+        \item\label{enum::1} 证明: 如果 $\mb, \mc$ 是两个实对称矩阵, $\mb$ 正定, 则存在可逆的 $\mpp$ 使 $\quadform{\mpp}{\mb}= \me$, 且 $\quadform{\mpp}{\mc}$ 是对角阵\footnote{注意这个题目与 229 页题目 11 「同时可对角化」的区别, 这里是合同变换而非相似, 所以不需要两个矩阵可交换};
+        \item\label{enum::2} 利用 \ref{enum::1} 证明, 如果 $\mb$ 正定, $\mc$ 半正定, 且 $\mb - \mc$ 是半正定的, 那么 $|\mb| \geqslant |\mc|$;
+        \item 利用 \ref{enum::2} 证明 (\ref{enum::0}).
+    \end{enumerate}
+    我们先证明前两项.
+    \begin{lemma}\label{lemma::1}
+        如果 $\mb, \mc$ 是两个实对称矩阵, $\mb$ 正定, 则存在可逆的 $\mpp$ 使 $\quadform{\mpp}{\mb}= \me$, 且 $\quadform{\mpp}{\mc}$ 是对角阵.
+    \end{lemma}
+    \begin{proof}
+        首先由于 $\mb$ 正定, 那么存在可逆矩阵 $\mm$ 使之合同于单位矩阵 $\quadform{\mm}{\mb}$, 此时 $\quadform{\mm}{\mc}$ 由合同关系, 依然是半正定的. 因为后者是实对称矩阵, 可以相似对角化, 我们取正交矩阵 $\muu$ 来让 $\quadform{\mm}{\mc}$ 对角化为对角阵 $\muu^\top \quadform{\mm}{\mc} \muu = \mat{\Lambda}$, 那么取 $\mpp = \mm \muu$ 即可,
+        \[
+            \quadform{\muu}{\quadform{\mm}{\mb}} = \me, \qquad \quadform{\muu}{\quadform{\mm}{\mc}} = \mat{\Lambda}.
+        \]
+    \end{proof}
+    \newpage
+    \begin{lemma}\label{lemma::2}
+        如果 $\mb$ 正定, $\mc$ 半正定, 且 $\mb - \mc$ 是半正定的, 那么 $|\mb| \geqslant |\mc|$.\footnote{如果把这个引理换到实数上, 这个引理就是说: 如果 $b > 0$, $c \geqslant 0$ 且 $b - c \geqslant 0$, 那么 $|b| \geqslant |c|$. 可见正定矩阵某种程度上就像是「正数」一样.}
+    \end{lemma}
+    \begin{proof}
+        利用引理 \ref{lemma::1}, 存在 $\mpp$,
+        \[
+            \quadform{\mpp}{\mb} = \me, \qquad \quadform{\mpp}{\mc} = \mat{\Lambda},
+        \]
+        那么 $\quadform{\mpp}{\mb - \mc} = \me - \mat{\Lambda}$ 是半正定的. 由于经过 $\mpp$ 变化之后, 三个矩阵都是对角阵, 那么正定就是说它们的对角元都是正的, 半正定就是说它们的对角元是非负的. 所以 $\mat{\Lambda}$ 的对角元和 $\me - \mat{\Lambda}$ 的对角元都是非负的, 即 $\mat{\Lambda}$ 的对角元在 $[0, 1]$ 区间上.
+
+        所以 $1 = |\quadform{\mpp}{\mb}| \geqslant |\quadform{\mpp}{\mc}|$, 即 $|\mb| \geqslant |\mc|$.
+    \end{proof}
+    有了这两个引理, 我们就可以证明 (\ref{enum::0}) 了. 首先 $\ma_{22}$ 和 $\ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}$ 都正定, 而 $\ma_{11}$ 正定, 所以 $\mlx^\top \ma_{21}\ma_{11}^{-1}\ma_{12}\mlx = \quadform{(\ma_{12}\mlx)}{\ma_{11}^{-1}} \geqslant 0$, 即 $\ma_{21}\ma_{11}^{-1}\ma_{12}$ 是半正定的. 那么根据引理 \ref{lemma::2}, $|\ma_{22}| \geqslant |\ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}|$, 因此
+    \[
+    |\ma| = |\ma_{11}||\ma_{22} - \ma_{21}\ma_{11}^{-1}\ma_{12}| \leqslant |\ma_{11}||\ma_{22}|.
+    \]
+\end{enumerate}
+\end{solution}
+
+\subsection*{ 题目 19 }
+\begin{problem*}
+设 $\ma = (a_{ij})$ 是一个实对称矩阵. 证明: 
+\begin{enumerate}
+    \item 矩阵 $\ma$ 正定当且仅当 $\ma$ 的任一个主子式都大于零;
+    \item 假设 $\ma$ 正定, 对任意 $i \not= j$, 有 $|a_{ij}| \leqslant \sqrt{a_{ii}a_{jj}}$;
+    \item 假设 $\ma$ 正定, $\ma$ 中所有元素中绝对值最大的元素一定在对角线上.
+\end{enumerate}
+\end{problem*}
+\begin{solution}
+\begin{enumerate}
+    \item 假设主子阵 $\ma^\prime$ 由 $i_1, i_2, \cdots, i_k$ 行和列决定, 那么取 $\mlx = x_1 \mle_{i_1} + x_2 \mle_{i_2} + \cdots + x_k \mle_{i_k}$, 如果 $\mlx^\prime := (x_1, x_2, \cdots, x_k) \not= \mat{\theta}$,
+    \[
+        \quadform{\mlx^\prime}{\ma^\prime} = \quadform{\mlx}{\ma} > 0,
+    \]
+    这说明主子阵 $\ma^\prime$ 正定. 故主子式大于零.
+    \item 考虑 $i, j$ 行和列决定的二阶主子式, 由上面的结论, 它是正的, 所以有 $a_{ii} a_{jj} - a_{ij}^2 > 0$, 因此 $|a_{ij}| \leqslant \sqrt{a_{ii}a_{jj}}$.
+    \item 由第二个结论, $a_{ii}$ 和 $a_{jj}$ 中至少有一个大于等于 $|a_{ij}|$, 所以对任何一个非对角元, 都能找到一个对角元比它的绝对值大. 所以所有元素中绝对值最大的元素一定在对角线上.
+\end{enumerate}
+\end{solution}
+
+\newpage
+\subsection*{ 题目 21 }
+\begin{problem*}
+设分块实矩阵 $\ma = \begin{pmatrix}
+    \mb & \mc \\ \mc^\top & \mat{O}
+\end{pmatrix}$, 其中 $\mb_{m \times m}$ 正定, $\mc_{m \times n}$ 列满秩. 证明二次型 $f(\mlx) = \quadform{\mlx}{\ma}$ 的正惯性指数和负惯性指数分别为 $m$ 和 $n$.
+\end{problem*}
+\begin{solution}
+思路:\textit{将这个矩阵合同为规范形}.
+
+因为 $\mb$ 正定, 所以可以取 $\mm$ 可逆, 使 $\quadform{\mm}{\mb} = \me_{m}$. 那么
+\[
+\quadform{
+    \begin{pmatrix}
+        \mm & \\ & \me
+    \end{pmatrix}
+}{
+    \begin{pmatrix}
+        \mb & \mc \\ \mc^\top & \mat{O}
+    \end{pmatrix}
+} = 
+\begin{pmatrix}
+    \me_m & \mm^\top \mc \\
+    \mc^\top \mm & \mat{O}
+\end{pmatrix},
+\]
+然后, 用合同变换把次对角的两个矩阵消去
+\[
+\quadform{
+    \begin{pmatrix}
+        \me_m & -\mm^\top \mc \\
+        & \me_n
+    \end{pmatrix}
+}{
+    \begin{pmatrix}
+        \me_m & \mm^\top \mc \\
+        \mc^\top \mm & \mat{O}
+    \end{pmatrix}
+} =
+\begin{pmatrix}
+    \me_m & \\
+    & -\mc^\top \mm \mm^\top \mc
+\end{pmatrix}
+\]
+$\mm$ 可逆, 所以 $\mm \mm^\top$ 正定. 而 $\mc$ 列满秩, 所以 $\mc \mly = 0 \Leftrightarrow \mly = 0$, 因此
+\[
+\quadform{\mly}{\mc^\top \mm \mm^\top \mc} = 0 \Leftrightarrow \mc \mly = 0 \Leftrightarrow \mly = 0,
+\]
+即 $\mc^\top \mm \mm^\top \mc$ 正定, 进而 $-\mc^\top \mm \mm^\top \mc$ 负定. 因此有可逆矩阵 $\mn$ 使之变为规范形 $\quadform{\mn}{\mc^\top \mm \mm^\top \mc} = \me_n$. 因此
+\[
+\quadform{
+    \begin{pmatrix}
+        \me & \\ & \mn
+    \end{pmatrix}
+}{
+    \begin{pmatrix}
+        \me_m & \\
+        & -\mc^\top \mm \mm^\top \mc
+    \end{pmatrix}
+} = 
+\begin{pmatrix}
+    \me_m & \\
+    & -\me_n
+\end{pmatrix},
+\]
+即 $\ma$ 的正惯性指数是 $m$, 负惯性指数是 $n$.
+\end{solution}
