@@ -179,7 +179,7 @@ a \mlx^\top \mlx \leqslant \mlx^\top \ma \mlx \leqslant b \mlx^\top \mlx.
         如果 $\mb, \mc$ 是两个实对称矩阵, $\mb$ 正定, 则存在可逆的 $\mpp$ 使 $\quadform{\mpp}{\mb}= \me$, 且 $\quadform{\mpp}{\mc}$ 是对角阵.
     \end{lemma}
     \begin{proof}
-        首先由于 $\mb$ 正定, 那么存在可逆矩阵 $\mm$ 使之合同于单位矩阵 $\quadform{\mm}{\mb}$, 此时 $\quadform{\mm}{\mc}$ 由合同关系, 依然是半正定的. 因为后者是实对称矩阵, 可以相似对角化, 我们取正交矩阵 $\muu$ 来让 $\quadform{\mm}{\mc}$ 对角化为对角阵 $\muu^\top \quadform{\mm}{\mc} \muu = \mat{\Lambda}$, 那么取 $\mpp = \mm \muu$ 即可,
+        首先由于 $\mb$ 正定, 那么存在可逆矩阵 $\mm$ 使之合同于单位矩阵 $\quadform{\mm}{\mb}$, 此时 $\quadform{\mm}{\mc}$ 由合同关系, 依然是对称的. 因为后者是实对称矩阵, 可以相似对角化, 我们取正交矩阵 $\muu$ 来让 $\quadform{\mm}{\mc}$ 对角化为对角阵 $\muu^\top \quadform{\mm}{\mc} \muu = \mat{\Lambda}$, 那么取 $\mpp = \mm \muu$ 即可,
         \[
             \quadform{\muu}{\quadform{\mm}{\mb}} = \me, \qquad \quadform{\muu}{\quadform{\mm}{\mc}} = \mat{\Lambda}.
         \]
